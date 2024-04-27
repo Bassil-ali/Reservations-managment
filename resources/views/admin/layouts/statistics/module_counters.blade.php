@@ -121,3 +121,48 @@
     </div>
 </div>
 <!--responses_end-->
+<!--decesions_start-->
+<div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-primary">
+      <div class="inner">
+        <h3>{{ mK(App\Models\Decesion::count()) }}</h3>
+        <p>{{ trans("admin.decesions") }}</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-american-sign-language-interpreting"></i>
+      </div>
+      <a href="{{ aurl("decesions") }}" class="small-box-footer">{{ trans("admin.decesions") }} <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+<!--decesions_end-->
+<!--machines_start-->
+<div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-primary">
+      <div class="inner">
+        <h3>{{ mK(App\Models\Machine::count()) }}</h3>
+        <p>{{ trans("admin.machines") }}</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-dharmachakra"></i>
+      </div>
+      <a href="{{ aurl("machines") }}" class="small-box-footer">{{ trans("admin.machines") }} <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+<!--machines_end-->
+<!--offsets_start-->
+<div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-primary">
+      <div class="inner">
+        <h3>{{ mK(App\Models\Offset::count()) }}</h3>
+        <p>{{ trans("admin.offsets") }}</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-window-close"></i>
+      </div>
+      <a href="{{ aurl("offsets") }}" class="small-box-footer">{{ trans("admin.offsets") }} <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+<!--offsets_end-->

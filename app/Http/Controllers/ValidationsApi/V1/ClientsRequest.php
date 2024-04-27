@@ -27,11 +27,8 @@ class clientsRequest extends FormRequest {
 		return [
              'first_name'=>'required|string',
              'second_name'=>'required|string',
-             'grade'=>'required|integer',
-             'type'=>'required|integer',
              'Passowrd'=>'required|string',
              'username'=>'required|string',
-             'direction'=>'required|string',
 		];
 	}
 
@@ -40,11 +37,8 @@ class clientsRequest extends FormRequest {
 		return [
              'first_name'=>'required|string',
              'second_name'=>'required|string',
-             'grade'=>'required|integer',
-             'type'=>'required|integer',
              'Passowrd'=>'required|string',
              'username'=>'required|string',
-             'direction'=>'required|string',
 		];
 	}
 
@@ -64,11 +58,8 @@ class clientsRequest extends FormRequest {
 		return [
              'first_name'=>trans('admin.first_name'),
              'second_name'=>trans('admin.second_name'),
-             'grade'=>trans('admin.grade'),
-             'type'=>trans('admin.type'),
              'Passowrd'=>trans('admin.Passowrd'),
              'username'=>trans('admin.username'),
-             'direction'=>trans('admin.direction'),
 		];
 	}
 

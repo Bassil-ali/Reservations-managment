@@ -19,6 +19,7 @@ class clientsDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('actions', 'admin.clients.buttons.actions')
+            ->addColumn('active', '{{ trans("admin.".$active) }}')
             ->addColumn('photo', '{!! view("admin.show_image",["image"=>$photo])->render() !!}')
    		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
@@ -35,7 +36,7 @@ class clientsDataTable extends DataTable
      */
 	public function query()
     {
-        return Client::query()->select("clients.*");
+        return Client::query()->with(['grade_id','type_id','direction_id',])->select("clients.*");
 
     }
     	
@@ -169,16 +170,6 @@ class clientsDataTable extends DataTable
                  'title'=>trans('admin.second_name'),
 		    ],
 				[
-                 'name'=>'grade',
-                 'data'=>'grade',
-                 'title'=>trans('admin.grade'),
-		    ],
-				[
-                 'name'=>'type',
-                 'data'=>'type',
-                 'title'=>trans('admin.type'),
-		    ],
-				[
                  'name'=>'Passowrd',
                  'data'=>'Passowrd',
                  'title'=>trans('admin.Passowrd'),
@@ -187,11 +178,6 @@ class clientsDataTable extends DataTable
                  'name'=>'username',
                  'data'=>'username',
                  'title'=>trans('admin.username'),
-		    ],
-				[
-                 'name'=>'direction',
-                 'data'=>'direction',
-                 'title'=>trans('admin.direction'),
 		    ],
             [
 	                'name' => 'created_at',

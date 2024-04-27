@@ -15,11 +15,8 @@ class clientsApi extends Controller{
 		"id",
 		"first_name",
 		"second_name",
-		"grade",
-		"type",
 		"Passowrd",
 		"username",
-		"direction",
 	];
 
             /**
@@ -28,7 +25,7 @@ class clientsApi extends Controller{
              * @return array to assign with index & show methods
              */
             public function arrWith(){
-               return [];
+               return ['grade_id','type_id','direction_id',];
             }
 
 
@@ -53,6 +50,7 @@ class clientsApi extends Controller{
     {
     	$data = $request->except("_token");
     	
+              $data["user_id"] = auth()->id(); 
         $Client = Client::create($data); 
 
 		  $Client = Client::with($this->arrWith())->find($Client->id,$this->selectColumns);
@@ -110,6 +108,7 @@ class clientsApi extends Controller{
 
             	$data = $this->updateFillableColumns();
                  
+              $data["user_id"] = auth()->id(); 
               Client::where("id",$id)->update($data);
 
               $Client = Client::with($this->arrWith())->find($id,$this->selectColumns);

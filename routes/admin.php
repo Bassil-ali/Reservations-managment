@@ -55,6 +55,12 @@ Route::group(['prefix'=>app('admin'),'middleware'=>'Lang'],function(){
 		Route::post('directions/multi_delete','Admin\Directions@multi_delete'); 
 		Route::resource('responses','Admin\Responses'); 
 		Route::post('responses/multi_delete','Admin\Responses@multi_delete'); 
+		Route::resource('decesions','Admin\Decesions'); 
+		Route::post('decesions/multi_delete','Admin\Decesions@multi_delete'); 
+		Route::resource('machines','Admin\Machines'); 
+		Route::post('machines/multi_delete','Admin\Machines@multi_delete'); 
+		Route::resource('offsets','Admin\Offsets'); 
+		Route::post('offsets/multi_delete','Admin\Offsets@multi_delete'); 
 		////////AdminRoutes/*End*///////////////
 	});
 

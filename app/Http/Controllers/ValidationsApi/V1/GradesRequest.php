@@ -25,16 +25,12 @@ class GradesRequest extends FormRequest {
 	 */
 	protected function onCreate() {
 		return [
-             'grade code'=>'required|integer',
-             'grade name'=>'required|string',
 		];
 	}
 
 
 	protected function onUpdate() {
 		return [
-             'grade code'=>'required|integer',
-             'grade name'=>'required|string',
 		];
 	}
 
@@ -52,8 +48,6 @@ class GradesRequest extends FormRequest {
 	 */
 	public function attributes() {
 		return [
-             'grade code'=>trans('admin.grade code'),
-             'grade name'=>trans('admin.grade name'),
 		];
 	}
 

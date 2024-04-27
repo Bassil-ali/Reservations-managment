@@ -43,16 +43,16 @@
     </div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-    <div class="form-group">
-        {!! Form::label('grade',trans('admin.grade'),['class'=>' control-label']) !!}
-            {!! Form::text('grade',old('grade'),['class'=>'form-control','placeholder'=>trans('admin.grade')]) !!}
-    </div>
+	<div class="form-group">
+		{!! Form::label('grade_id',trans('admin.grade_id')) !!}
+		{!! Form::select('grade_id',App\Models\Grade::pluck('grade_name','id'),old('grade_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+	</div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-    <div class="form-group">
-        {!! Form::label('type',trans('admin.type'),['class'=>' control-label']) !!}
-            {!! Form::text('type',old('type'),['class'=>'form-control','placeholder'=>trans('admin.type')]) !!}
-    </div>
+	<div class="form-group">
+		{!! Form::label('type_id',trans('admin.type_id')) !!}
+		{!! Form::select('type_id',App\Models\Type::pluck('name','id'),old('type_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+	</div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
@@ -67,18 +67,16 @@
     </div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-    <div class="form-group">
-        {!! Form::label('direction',trans('admin.direction'),['class'=>' control-label']) !!}
-            {!! Form::text('direction',old('direction'),['class'=>'form-control','placeholder'=>trans('admin.direction')]) !!}
-    </div>
+	<div class="form-group">
+		{!! Form::label('direction_id',trans('admin.direction_id')) !!}
+		{!! Form::select('direction_id',App\Models\Direction::pluck('name','id'),old('direction_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+	</div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-    <div class="form-group">
-        <div class="custom-control custom-switch">
-            {!! Form::checkbox("active","1",old("active"),["class"=>"custom-control-input","placeholder"=>trans("admin.1"),"id"=>"active"]) !!}
-            {!! Form::label("active",trans("admin.1"),["class"=>"custom-control-label"]) !!}
-        </div>
-    </div>
+	<div class="form-group">
+		{!! Form::label('active',trans('admin.active')) !!}
+		{!! Form::select('active',['stoped'=>trans('admin.stoped'),'activate'=>trans('admin.activate'),'hanging'=>trans('admin.hanging'),],old('active'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+	</div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 photo">
     <div class="form-group">

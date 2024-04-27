@@ -16,14 +16,15 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->bigIncrements('id');
+$table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDelete("cascade");
             $table->string('first_name');
             $table->string('second_name');
-            $table->string('grade');
-            $table->string('type');
+            $table->foreignId("grade_id")->constrained("grades")->references("id")->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("type_id")->constrained("types")->references("id")->onUpdate("cascade")->onDelete("cascade");
             $table->string('Passowrd');
             $table->string('username');
-            $table->string('direction');
-            $table->string('active')->nullable();
+            $table->foreignId("direction_id")->constrained("Directions")->references("id")->onUpdate("cascade")->onDelete("cascade");
+            $table->enum('active',['stoped','activate','hanging'])->nullable();
             $table->string('photo')->nullable();
             $table->string('email');
 			$table->timestamps();

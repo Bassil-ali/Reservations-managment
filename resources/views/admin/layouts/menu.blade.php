@@ -240,3 +240,87 @@ with font-awesome or any other icon font library -->
 </li>
 @endif
 <!--responses_end_route-->
+
+<!--decesions_start_route-->
+@if(admin()->user()->role("decesions_show"))
+<li class="nav-item {{active_link('decesions','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('decesions','active')}}">
+    <i class="nav-icon fa fa-american-sign-language-interpreting"></i>
+    <p>
+      {{trans('admin.decesions')}} 
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('decesions')}}" class="nav-link  {{active_link('decesions','active')}}">
+        <i class="fa fa-american-sign-language-interpreting nav-icon"></i>
+        <p>{{trans('admin.decesions')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('decesions/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+</li>
+@endif
+<!--decesions_end_route-->
+
+<!--machines_start_route-->
+@if(admin()->user()->role("machines_show"))
+<li class="nav-item {{active_link('machines','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('machines','active')}}">
+    <i class="nav-icon fa fa-dharmachakra"></i>
+    <p>
+      {{trans('admin.machines')}} 
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('machines')}}" class="nav-link  {{active_link('machines','active')}}">
+        <i class="fa fa-dharmachakra nav-icon"></i>
+        <p>{{trans('admin.machines')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('machines/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+</li>
+@endif
+<!--machines_end_route-->
+
+<!--offsets_start_route-->
+@if(admin()->user()->role("offsets_show"))
+<li class="nav-item {{active_link('offsets','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('offsets','active')}}">
+    <i class="nav-icon fa fa-window-close"></i>
+    <p>
+      {{trans('admin.offsets')}} 
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('offsets')}}" class="nav-link  {{active_link('offsets','active')}}">
+        <i class="fa fa-window-close nav-icon"></i>
+        <p>{{trans('admin.offsets')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('offsets/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+</li>
+@endif
+<!--offsets_end_route-->

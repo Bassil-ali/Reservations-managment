@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "ddcdc48c-1e57-41fe-8f30-3ca5d33e46b7",
+        "_postman_id": "600a4680-eaf4-49f7-8c71-3f730274140a",
         "name": null,
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
@@ -158,18 +158,6 @@
                                     "description": "For Return Language Message default Arabic",
                                     "type": "text",
                                     "value": "ar"
-                                },
-                                {
-                                    "key": "grade code",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
-                                    "key": "grade name",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
                                 }
                             ]
                         },
@@ -218,18 +206,6 @@
                                     "description": "For Return Language Message default Arabic",
                                     "type": "text",
                                     "value": "ar"
-                                },
-                                {
-                                    "key": "grade code",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
-                                    "key": "grade name",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
                                 }
                             ]
                         },

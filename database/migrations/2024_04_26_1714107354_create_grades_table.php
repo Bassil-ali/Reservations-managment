@@ -16,8 +16,9 @@ class CreateGradesTable extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('grade code');
-            $table->string('grade name');
+$table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDelete("cascade");
+            $table->string('grade_code');
+            $table->string('grade_name');
 			$table->timestamps();
         });
     }

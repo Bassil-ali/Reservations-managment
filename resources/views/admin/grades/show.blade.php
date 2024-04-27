@@ -62,13 +62,19 @@
 			</div>
 			<div class="clearfix"></div>
 			<hr />
+			@if(!empty($grades->admin_id()->first()))
+			<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+				<b>{{trans('admin.admin_id')}} :</b>
+				{{ $grades->admin_id()->first()->name }}
+			</div>
+			@endif
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.grade code')}} :</b>
-				{!! $grades->grade code !!}
+				<b>{{trans('admin.grade_code')}} :</b>
+				{!! $grades->grade_code !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.grade name')}} :</b>
-				{!! $grades->grade name !!}
+				<b>{{trans('admin.grade_name')}} :</b>
+				{!! $grades->grade_name !!}
 			</div>
 			<!-- /.row -->
 		</div>

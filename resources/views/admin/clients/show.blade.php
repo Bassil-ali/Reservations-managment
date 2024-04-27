@@ -62,6 +62,12 @@
 			</div>
 			<div class="clearfix"></div>
 			<hr />
+			@if(!empty($clients->admin_id()->first()))
+			<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+				<b>{{trans('admin.admin_id')}} :</b>
+				{{ $clients->admin_id()->first()->name }}
+			</div>
+			@endif
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.first_name')}} :</b>
 				{!! $clients->first_name !!}
@@ -71,28 +77,34 @@
 				{!! $clients->second_name !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.grade')}} :</b>
-				{!! $clients->grade !!}
-			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.type')}} :</b>
-				{!! $clients->type !!}
-			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.username')}} :</b>
 				{!! $clients->username !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.direction')}} :</b>
-				{!! $clients->direction !!}
+				<b>{{trans('admin.email')}} :</b>
+				{!! $clients->email !!}
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.grade_id')}} :</b>
+				@if(!empty($clients->grade_id()->first()))
+			{{ $clients->grade_id()->first()->grade_name }}
+			@endif
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.type_id')}} :</b>
+				@if(!empty($clients->type_id()->first()))
+			{{ $clients->type_id()->first()->name }}
+			@endif
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.direction_id')}} :</b>
+				@if(!empty($clients->direction_id()->first()))
+			{{ $clients->direction_id()->first()->name }}
+			@endif
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.active')}} :</b>
-				{!! $clients->active !!}
-			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.email')}} :</b>
-				{!! $clients->email !!}
+				{{ trans("admin.".$clients->active) }}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.photo')}} :</b>

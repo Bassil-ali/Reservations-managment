@@ -11,11 +11,22 @@ protected $table    = 'grades';
 protected $fillable = [
 		'id',
 		'admin_id',
-        'grade code',
-        'grade name',
+        'grade_code',
+        'grade_name',
 		'created_at',
 		'updated_at',
 	];
+
+	/**
+	 * admin id relation method to get how add this data
+	 * @type hasOne
+	 * @param void
+	 * @return object data
+	 */
+   public function admin_id() {
+	   return $this->hasOne(\App\Models\Admin::class, 'id', 'admin_id');
+   }
+	
 
  	/**
     * Static Boot method to delete or update or sort Data

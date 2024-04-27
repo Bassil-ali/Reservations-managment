@@ -6,12 +6,15 @@
 * [it v 1.6.40]
 */
 return [
+	"machines"=>["create","read","update","delete"],
+	"offsets"=>["create","read","update","delete"],
+	"clients"=>["create","read","update","delete"],
+	"grades"=>["create","read","update","delete"],
+	"decesions"=>["create","read","update","delete"],
 	"responses"=>["create","read","update","delete"],
 	"directions"=>["create","read","update","delete"],
 	"categories"=>["create","read","update","delete"],
 	"types"=>["create","read","update","delete"],
-	"clients"=>["create","read","update","delete"],
-	"grades"=>["create","read","update","delete"],
 	""=>["create","read","update","delete"],
 	"client"=>["create","read","update","delete"],
 	"user"=>["create","read","update","delete"],

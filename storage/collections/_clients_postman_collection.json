@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "c362b378-3c15-409e-9645-af7ee35b563a",
+        "_postman_id": "0fd9e93b-c264-4316-aa62-9270ede7b9c9",
         "name": null,
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
@@ -172,18 +172,6 @@
                                     "description": "normal input text"
                                 },
                                 {
-                                    "key": "grade",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
-                                    "key": "type",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
                                     "key": "Passowrd",
                                     "value": "some string",
                                     "type": "text",
@@ -191,12 +179,6 @@
                                 },
                                 {
                                     "key": "username",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
-                                    "key": "direction",
                                     "value": "some string",
                                     "type": "text",
                                     "description": "normal input text"
@@ -262,18 +244,6 @@
                                     "description": "normal input text"
                                 },
                                 {
-                                    "key": "grade",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
-                                    "key": "type",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
                                     "key": "Passowrd",
                                     "value": "some string",
                                     "type": "text",
@@ -281,12 +251,6 @@
                                 },
                                 {
                                     "key": "username",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
-                                    "key": "direction",
                                     "value": "some string",
                                     "type": "text",
                                     "description": "normal input text"

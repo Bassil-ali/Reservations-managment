@@ -48,6 +48,12 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v1', 'namespace'
 			Route::post("directions/multi_delete","DirectionsApi@multi_delete"); 
 			Route::apiResource("responses","ResponsesApi", ["as" => "api.responses"]); 
 			Route::post("responses/multi_delete","ResponsesApi@multi_delete"); 
+			Route::apiResource("decesions","DecesionsApi", ["as" => "api.decesions"]); 
+			Route::post("decesions/multi_delete","DecesionsApi@multi_delete"); 
+			Route::apiResource("machines","MachinesApi", ["as" => "api.machines"]); 
+			Route::post("machines/multi_delete","MachinesApi@multi_delete"); 
+			Route::apiResource("offsets","OffsetsApi", ["as" => "api.offsets"]); 
+			Route::post("offsets/multi_delete","OffsetsApi@multi_delete"); 
 			//Auth-Api-End//
 	});
 	// Insert your Api Here End //

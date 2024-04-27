@@ -13,8 +13,6 @@ use App\Http\Controllers\ValidationsApi\V1\GradesRequest;
 class GradesApi extends Controller{
 	protected $selectColumns = [
 		"id",
-		"grade code",
-		"grade name",
 	];
 
             /**
@@ -48,6 +46,7 @@ class GradesApi extends Controller{
     {
     	$data = $request->except("_token");
     	
+              $data["user_id"] = auth()->id(); 
         $Grade = Grade::create($data); 
 
 		  $Grade = Grade::with($this->arrWith())->find($Grade->id,$this->selectColumns);
@@ -105,6 +104,7 @@ class GradesApi extends Controller{
 
             	$data = $this->updateFillableColumns();
                  
+              $data["user_id"] = auth()->id(); 
               Grade::where("id",$id)->update($data);
 
               $Grade = Grade::with($this->arrWith())->find($id,$this->selectColumns);

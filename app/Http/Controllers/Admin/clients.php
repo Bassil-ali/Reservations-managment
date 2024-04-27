@@ -62,6 +62,7 @@ class clients extends Controller
             {
                 $data = $request->except("_token", "_method");
             	$data['photo'] = "";
+$data['admin_id'] = admin()->id(); 
 		  		$clients = Client::create($data); 
                if(request()->hasFile('photo')){
               $clients->photo = it()->upload('photo','clients/'.$clients->id);
@@ -129,7 +130,7 @@ class clients extends Controller
               	return backWithError(trans("admin.undefinedRecord"),aurl("clients"));
               }
               $data = $this->updateFillableColumns(); 
-              $data["active"] = !empty(request("active"))?request("active"):null;
+              $data['admin_id'] = admin()->id(); 
                if(request()->hasFile('photo')){
               it()->delete($clients->photo);
               $data['photo'] = it()->upload('photo','clients');

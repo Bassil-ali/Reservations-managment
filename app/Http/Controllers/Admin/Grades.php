@@ -61,7 +61,8 @@ class Grades extends Controller
             public function store(GradesRequest $request)
             {
                 $data = $request->except("_token", "_method");
-            			  		$grades = Grade::create($data); 
+            	$data['admin_id'] = admin()->id(); 
+		  		$grades = Grade::create($data); 
                 $redirect = isset($request["add_back"])?"/create":"";
                 return redirectWithSuccess(aurl('grades'.$redirect), trans('admin.added')); }
 
@@ -124,6 +125,7 @@ class Grades extends Controller
               	return backWithError(trans("admin.undefinedRecord"),aurl("grades"));
               }
               $data = $this->updateFillableColumns(); 
+              $data['admin_id'] = admin()->id(); 
               Grade::where('id',$id)->update($data);
               $redirect = isset($request["save_back"])?"/".$id."/edit":"";
               return redirectWithSuccess(aurl('grades'.$redirect), trans('admin.updated'));

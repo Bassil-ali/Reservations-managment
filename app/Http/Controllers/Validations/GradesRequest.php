@@ -25,15 +25,15 @@ class GradesRequest extends FormRequest {
 	 */
 	protected function onCreate() {
 		return [
-             'grade code'=>'required|integer',
-             'grade name'=>'required|string',
+             'grade_code'=>'required|integer',
+             'grade_name'=>'required|string',
 		];
 	}
 
 	protected function onUpdate() {
 		return [
-             'grade code'=>'required|integer',
-             'grade name'=>'required|string',
+             'grade_code'=>'required|integer',
+             'grade_name'=>'required|string',
 		];
 	}
 
@@ -51,8 +51,8 @@ class GradesRequest extends FormRequest {
 	 */
 	public function attributes() {
 		return [
-             'grade code'=>trans('admin.grade code'),
-             'grade name'=>trans('admin.grade name'),
+             'grade_code'=>trans('admin.grade_code'),
+             'grade_name'=>trans('admin.grade_name'),
 		];
 	}
 

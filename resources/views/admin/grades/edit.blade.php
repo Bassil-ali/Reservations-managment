@@ -63,14 +63,14 @@
 
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
-        {!! Form::label('grade code',trans('admin.grade code'),['class'=>'control-label']) !!}
-        {!! Form::text('grade code', $grades->grade code ,['class'=>'form-control','placeholder'=>trans('admin.grade code')]) !!}
+        {!! Form::label('grade_code',trans('admin.grade_code'),['class'=>'control-label']) !!}
+        {!! Form::text('grade_code', $grades->grade_code ,['class'=>'form-control','placeholder'=>trans('admin.grade_code')]) !!}
     </div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
-        {!! Form::label('grade name',trans('admin.grade name'),['class'=>'control-label']) !!}
-        {!! Form::text('grade name', $grades->grade name ,['class'=>'form-control','placeholder'=>trans('admin.grade name')]) !!}
+        {!! Form::label('grade_name',trans('admin.grade_name'),['class'=>'control-label']) !!}
+        {!! Form::text('grade_name', $grades->grade_name ,['class'=>'form-control','placeholder'=>trans('admin.grade_name')]) !!}
     </div>
 </div>
 
