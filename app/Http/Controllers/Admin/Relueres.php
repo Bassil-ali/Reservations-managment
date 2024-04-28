@@ -1,29 +1,29 @@
 <?php
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\DataTables\OffsetsDataTable;
+use App\DataTables\RelueresDataTable;
 use Carbon\Carbon;
-use App\Models\Offset;
+use App\Models\Reluere;
 
-use App\Http\Controllers\Validations\OffsetsRequest;
+use App\Http\Controllers\Validations\RelueresRequest;
 // Auto Controller Maker By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.40]
 // Copyright Reserved  [it v 1.6.40]
-class Offsets extends Controller
+class Relueres extends Controller
 {
 
 	// public function __construct() {
 
-	// 	$this->middleware('AdminRole:offsets_show', [
+	// 	$this->middleware('AdminRole:relueres_show', [
 	// 		'only' => ['index', 'show'],
 	// 	]);
-	// 	$this->middleware('AdminRole:offsets_add', [
+	// 	$this->middleware('AdminRole:relueres_add', [
 	// 		'only' => ['create', 'store'],
 	// 	]);
-	// 	$this->middleware('AdminRole:offsets_edit', [
+	// 	$this->middleware('AdminRole:relueres_edit', [
 	// 		'only' => ['edit', 'update'],
 	// 	]);
-	// 	$this->middleware('AdminRole:offsets_delete', [
+	// 	$this->middleware('AdminRole:relueres_delete', [
 	// 		'only' => ['destroy', 'multi_delete'],
 	// 	]);
 	// }
@@ -35,9 +35,9 @@ class Offsets extends Controller
              * Display a listing of the resource.
              * @return \Illuminate\Http\Response
              */
-            public function index(OffsetsDataTable $offsets)
+            public function index(RelueresDataTable $relueres)
             {
-               return $offsets->render('admin.offsets.index',['title'=>trans('admin.offsets')]);
+               return $relueres->render('admin.relueres.index',['title'=>trans('admin.relueres')]);
             }
 
 
@@ -49,7 +49,7 @@ class Offsets extends Controller
             public function create()
             {
             	
-               return view('admin.offsets.create',['title'=>trans('admin.create')]);
+               return view('admin.relueres.create',['title'=>trans('admin.create')]);
             }
 
             /**
@@ -58,14 +58,14 @@ class Offsets extends Controller
              * @param  \Illuminate\Http\Request  $request
              * @return \Illuminate\Http\Response Or Redirect
              */
-            public function store(OffsetsRequest $request)
+            public function store(RelueresRequest $request)
             {
                 $data = $request->except("_token", "_method");
             	              $data['date'] = date('Y-m-d H:i', strtotime(request('date')));
 $data['admin_id'] = admin()->id(); 
-		  		$offsets = Offset::create($data); 
+		  		$relueres = Reluere::create($data); 
                 $redirect = isset($request["add_back"])?"/create":"";
-                return redirectWithSuccess(aurl('offsets'.$redirect), trans('admin.added')); }
+                return redirectWithSuccess(aurl('relueres'.$redirect), trans('admin.added')); }
 
             /**
              * Display the specified resource.
@@ -75,12 +75,12 @@ $data['admin_id'] = admin()->id();
              */
             public function show($id)
             {
-        		$offsets =  Offset::find($id);
-        		return is_null($offsets) || empty($offsets)?
-        		backWithError(trans("admin.undefinedRecord"),aurl("offsets")) :
-        		view('admin.offsets.show',[
+        		$relueres =  Reluere::find($id);
+        		return is_null($relueres) || empty($relueres)?
+        		backWithError(trans("admin.undefinedRecord"),aurl("relueres")) :
+        		view('admin.relueres.show',[
 				    'title'=>trans('admin.show'),
-					'offsets'=>$offsets
+					'relueres'=>$relueres
         		]);
             }
 
@@ -92,12 +92,12 @@ $data['admin_id'] = admin()->id();
              */
             public function edit($id)
             {
-        		$offsets =  Offset::find($id);
-        		return is_null($offsets) || empty($offsets)?
-        		backWithError(trans("admin.undefinedRecord"),aurl("offsets")) :
-        		view('admin.offsets.edit',[
+        		$relueres =  Reluere::find($id);
+        		return is_null($relueres) || empty($relueres)?
+        		backWithError(trans("admin.undefinedRecord"),aurl("relueres")) :
+        		view('admin.relueres.edit',[
 				  'title'=>trans('admin.edit'),
-				  'offsets'=>$offsets
+				  'relueres'=>$relueres
         		]);
             }
 
@@ -110,7 +110,7 @@ $data['admin_id'] = admin()->id();
              */
             public function updateFillableColumns() {
 				$fillableCols = [];
-				foreach (array_keys((new OffsetsRequest)->attributes()) as $fillableUpdate) {
+				foreach (array_keys((new RelueresRequest)->attributes()) as $fillableUpdate) {
 					if (!is_null(request($fillableUpdate))) {
 						$fillableCols[$fillableUpdate] = request($fillableUpdate);
 					}
@@ -118,19 +118,19 @@ $data['admin_id'] = admin()->id();
 				return $fillableCols;
 			}
 
-            public function update(OffsetsRequest $request,$id)
+            public function update(RelueresRequest $request,$id)
             {
               // Check Record Exists
-              $offsets =  Offset::find($id);
-              if(is_null($offsets) || empty($offsets)){
-              	return backWithError(trans("admin.undefinedRecord"),aurl("offsets"));
+              $relueres =  Reluere::find($id);
+              if(is_null($relueres) || empty($relueres)){
+              	return backWithError(trans("admin.undefinedRecord"),aurl("relueres"));
               }
               $data = $this->updateFillableColumns(); 
               $data['admin_id'] = admin()->id(); 
               $data['date'] = date('Y-m-d H:i', strtotime(request('date')));
-              Offset::where('id',$id)->update($data);
+              Reluere::where('id',$id)->update($data);
               $redirect = isset($request["save_back"])?"/".$id."/edit":"";
-              return redirectWithSuccess(aurl('offsets'.$redirect), trans('admin.updated'));
+              return redirectWithSuccess(aurl('relueres'.$redirect), trans('admin.updated'));
             }
 
             /**
@@ -140,14 +140,14 @@ $data['admin_id'] = admin()->id();
              * @return \Illuminate\Http\Response
              */
 	public function destroy($id){
-		$offsets = Offset::find($id);
-		if(is_null($offsets) || empty($offsets)){
-			return backWithSuccess(trans('admin.undefinedRecord'),aurl("offsets"));
+		$relueres = Reluere::find($id);
+		if(is_null($relueres) || empty($relueres)){
+			return backWithSuccess(trans('admin.undefinedRecord'),aurl("relueres"));
 		}
                
-		it()->delete('offset',$id);
-		$offsets->delete();
-		return redirectWithSuccess(aurl("offsets"),trans('admin.deleted'));
+		it()->delete('reluere',$id);
+		$relueres->delete();
+		return redirectWithSuccess(aurl("relueres"),trans('admin.deleted'));
 	}
 
 
@@ -155,24 +155,24 @@ $data['admin_id'] = admin()->id();
 		$data = request('selected_data');
 		if(is_array($data)){
 			foreach($data as $id){
-				$offsets = Offset::find($id);
-				if(is_null($offsets) || empty($offsets)){
-					return backWithError(trans('admin.undefinedRecord'),aurl("offsets"));
+				$relueres = Reluere::find($id);
+				if(is_null($relueres) || empty($relueres)){
+					return backWithError(trans('admin.undefinedRecord'),aurl("relueres"));
 				}
                     	
-				it()->delete('offset',$id);
-				$offsets->delete();
+				it()->delete('reluere',$id);
+				$relueres->delete();
 			}
-			return redirectWithSuccess(aurl("offsets"),trans('admin.deleted'));
+			return redirectWithSuccess(aurl("relueres"),trans('admin.deleted'));
 		}else {
-			$offsets = Offset::find($data);
-			if(is_null($offsets) || empty($offsets)){
-				return backWithError(trans('admin.undefinedRecord'),aurl("offsets"));
+			$relueres = Reluere::find($data);
+			if(is_null($relueres) || empty($relueres)){
+				return backWithError(trans('admin.undefinedRecord'),aurl("relueres"));
 			}
                     
-			it()->delete('offset',$data);
-			$offsets->delete();
-			return redirectWithSuccess(aurl("offsets"),trans('admin.deleted'));
+			it()->delete('reluere',$data);
+			$relueres->delete();
+			return redirectWithSuccess(aurl("relueres"),trans('admin.deleted'));
 		}
 	}
             

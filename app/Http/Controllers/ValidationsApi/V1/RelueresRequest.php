@@ -5,7 +5,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class clientsRequest extends FormRequest {
+class RelueresRequest extends FormRequest {
 
 	/**
 	 * Baboon Script By [it v 1.6.40]
@@ -25,18 +25,30 @@ class clientsRequest extends FormRequest {
 	 */
 	protected function onCreate() {
 		return [
-             'first_name'=>'required|string',
-             'second_name'=>'required|string',
-             'username'=>'required|string',
+             'user_id'=>'required|integer',
+             'code'=>'required|string',
+             'format'=>'required|string',
+             'poids'=>'required|string',
+             'category_id'=>'required|integer',
+             'decesion_id'=>'required|integer',
+             'machine_id'=>'required|integer',
+             'date'=>'sometimes|required|string',
+             'equipe'=>'required|string',
 		];
 	}
 
 
 	protected function onUpdate() {
 		return [
-             'first_name'=>'required|string',
-             'second_name'=>'required|string',
-             'username'=>'required|string',
+             'user_id'=>'required|integer',
+             'code'=>'required|string',
+             'format'=>'required|string',
+             'poids'=>'required|string',
+             'category_id'=>'required|integer',
+             'decesion_id'=>'required|integer',
+             'machine_id'=>'required|integer',
+             'date'=>'sometimes|required|string',
+             'equipe'=>'required|string',
 		];
 	}
 
@@ -54,9 +66,15 @@ class clientsRequest extends FormRequest {
 	 */
 	public function attributes() {
 		return [
-             'first_name'=>trans('admin.first_name'),
-             'second_name'=>trans('admin.second_name'),
-             'username'=>trans('admin.username'),
+             'user_id'=>trans('admin.user_id'),
+             'code'=>trans('admin.code'),
+             'format'=>trans('admin.format'),
+             'poids'=>trans('admin.poids'),
+             'category_id'=>trans('admin.category_id'),
+             'decesion_id'=>trans('admin.decesion_id'),
+             'machine_id'=>trans('admin.machine_id'),
+             'date'=>trans('admin.date'),
+             'equipe'=>trans('admin.equipe'),
 		];
 	}
 

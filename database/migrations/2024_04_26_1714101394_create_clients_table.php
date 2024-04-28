@@ -21,11 +21,11 @@ $table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDel
             $table->string('second_name');
             $table->foreignId("grade_id")->constrained("grades")->references("id")->onUpdate("cascade")->onDelete("cascade");
             $table->foreignId("type_id")->constrained("types")->references("id")->onUpdate("cascade")->onDelete("cascade");
-            $table->string('Passowrd');
+            $table->string('password');
             $table->string('username');
             $table->foreignId("direction_id")->constrained("Directions")->references("id")->onUpdate("cascade")->onDelete("cascade");
             $table->enum('active',['stoped','activate','hanging'])->nullable();
-            $table->string('photo')->nullable();
+            $table->string('photo');
             $table->string('email');
 			$table->timestamps();
         });

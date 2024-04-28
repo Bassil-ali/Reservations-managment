@@ -1,4 +1,5 @@
 <!--admingroups_start-->
+@if(!auth()->guard('client')->check())
 <div class="col-lg-3 col-6">
     <!-- small box -->
     <div class="small-box bg-success">
@@ -150,6 +151,7 @@
       <a href="{{ aurl("machines") }}" class="small-box-footer">{{ trans("admin.machines") }} <i class="fas fa-arrow-circle-right"></i></a>
     </div>
 </div>
+@endif
 <!--machines_end-->
 <!--offsets_start-->
 <div class="col-lg-3 col-6">
@@ -166,3 +168,18 @@
     </div>
 </div>
 <!--offsets_end-->
+<!--relueres_start-->
+<div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-primary">
+      <div class="inner">
+        <h3>{{ mK(App\Models\Reluere::count()) }}</h3>
+        <p>{{ trans("admin.relueres") }}</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-balance-scale"></i>
+      </div>
+      <a href="{{ aurl("relueres") }}" class="small-box-footer">{{ trans("admin.relueres") }} <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+<!--relueres_end-->

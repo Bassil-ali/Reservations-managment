@@ -1,12 +1,12 @@
 <?php
 namespace App\DataTables;
-use App\Models\Client;
+use App\Models\Reluere;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;
 // Auto DataTable By Baboon Script
 // Baboon Maker has been Created And Developed By [it v 1.6.40]
 // Copyright Reserved [it v 1.6.40]
-class clientsDataTable extends DataTable
+class RelueresDataTable extends DataTable
 {
     	
 
@@ -18,14 +18,12 @@ class clientsDataTable extends DataTable
     public function dataTable(DataTables $dataTables, $query)
     {
         return datatables($query)
-            ->addColumn('actions', 'admin.clients.buttons.actions')
-            ->addColumn('active', '{{ trans("admin.".$active) }}')
-            ->addColumn('photo', '{!! view("admin.show_image",["image"=>$photo])->render() !!}')
+            ->addColumn('actions', 'admin.relueres.buttons.actions')
    		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
                   <label for="selectdata{{ $id }}"></label>
                 </div>')
-            ->rawColumns(['checkbox','actions',"photo",]);
+            ->rawColumns(['checkbox','actions',]);
     }
   
 
@@ -36,7 +34,7 @@ class clientsDataTable extends DataTable
      */
 	public function query()
     {
-        return Client::query()->with(['grade_id','type_id','direction_id',])->select("clients.*");
+        return Reluere::query()->with(['user_id','category_id','decesion_id','machine_id',])->select("relueres.*");
 
     }
     	
@@ -77,6 +75,10 @@ class clientsDataTable extends DataTable
 					 'className' => 'btn btn-outline',
 					 'text' => '<i class="fa fa-file-pdf"> </i> '.trans('admin.export_pdf')
 					],	[
+					'extend' => 'reload',
+					'className' => 'btn btn-outline',
+					'text' => '<i class="fa fa-sync-alt"></i> '.trans('admin.reload')
+					],	[
 						'text' => '<i class="fa fa-trash"></i> '.trans('admin.delete'),
 						'className'    => 'btn btn-outline deleteBtn',
                     ], 	[
@@ -91,7 +93,17 @@ class clientsDataTable extends DataTable
 
 
             
-            
+            ". filterElement('1,3,1,4,1,5,1,9,1,10', 'input') . "
+
+                        //user_iduser_id,code,format,poids,category_id,decesion_id,machine_id,date,equipe2
+            ". filterElement('2', 'select', \App\Models\Client::pluck("first_name","first_name")) . "
+            //category_iduser_id,code,format,poids,category_id,decesion_id,machine_id,date,equipe6
+            ". filterElement('6', 'select', \App\Models\Category::pluck("name","name")) . "
+            //decesion_iduser_id,code,format,poids,category_id,decesion_id,machine_id,date,equipe7
+            ". filterElement('7', 'select', \App\Models\Decesion::pluck("name","name")) . "
+            //machine_iduser_id,code,format,poids,category_id,decesion_id,machine_id,date,equipe8
+            ". filterElement('8', 'select', \App\Models\Machine::pluck("name","name")) . "
+
 
 	            }",
                 'order' => [[1, 'desc']],
@@ -160,19 +172,49 @@ class clientsDataTable extends DataTable
                 'aaSorting'      => 'none'
             ],
 				[
-                 'name'=>'first_name',
-                 'data'=>'first_name',
-                 'title'=>trans('admin.first_name'),
+                 'name'=>'user_id.first_name',
+                 'data'=>'user_id.first_name',
+                 'title'=>trans('admin.user_id'),
 		    ],
 				[
-                 'name'=>'second_name',
-                 'data'=>'second_name',
-                 'title'=>trans('admin.second_name'),
+                 'name'=>'code',
+                 'data'=>'code',
+                 'title'=>trans('admin.code'),
 		    ],
 				[
-                 'name'=>'username',
-                 'data'=>'username',
-                 'title'=>trans('admin.username'),
+                 'name'=>'format',
+                 'data'=>'format',
+                 'title'=>trans('admin.format'),
+		    ],
+				[
+                 'name'=>'poids',
+                 'data'=>'poids',
+                 'title'=>trans('admin.poids'),
+		    ],
+				[
+                 'name'=>'category_id.name',
+                 'data'=>'category_id.name',
+                 'title'=>trans('admin.category_id'),
+		    ],
+				[
+                 'name'=>'decesion_id.name',
+                 'data'=>'decesion_id.name',
+                 'title'=>trans('admin.decesion_id'),
+		    ],
+				[
+                 'name'=>'machine_id.name',
+                 'data'=>'machine_id.name',
+                 'title'=>trans('admin.machine_id'),
+		    ],
+				[
+                 'name'=>'date',
+                 'data'=>'date',
+                 'title'=>trans('admin.date'),
+		    ],
+				[
+                 'name'=>'equipe',
+                 'data'=>'equipe',
+                 'title'=>trans('admin.equipe'),
 		    ],
             [
 	                'name' => 'created_at',
@@ -211,7 +253,7 @@ class clientsDataTable extends DataTable
 	     */
 	    protected function filename()
 	    {
-	        return 'clients_' . time();
+	        return 'relueres_' . time();
 	    }
     	
 }

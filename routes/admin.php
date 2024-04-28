@@ -13,6 +13,9 @@ Route::group(['prefix'=>app('admin'),'middleware'=>'Lang'],function(){
 		Route::post('login','Admin\AdminAuthenticated@login_post');
 		Route::view('forgot/password','admin.forgot_password');
 
+		Route::get('login-client','Admin\ClientAuthenticated@login_page');
+		Route::post('login-client','Admin\ClientAuthenticated@login_post');
+
 		Route::post('reset/password','Admin\AdminAuthenticated@reset_password');
 		Route::get('password/reset/{token}','Admin\AdminAuthenticated@reset_password_final');
 		Route::post('password/reset/{token}','Admin\AdminAuthenticated@reset_password_change');
@@ -20,7 +23,7 @@ Route::group(['prefix'=>app('admin'),'middleware'=>'Lang'],function(){
 
 	Route::view('need/permission','admin.no_permission');
 
-	Route::group(['middleware'=>'admin:admin'],function(){
+	Route::group(['middleware'=>['admin:admin', 'admin:client']],function(){
 		if(class_exists(\UniSharp\LaravelFilemanager\Lfm::class)){
 			Route::group(['prefix'=>'filemanager'],function(){
 				\UniSharp\LaravelFilemanager\Lfm::routes();
@@ -30,6 +33,7 @@ Route::group(['prefix'=>app('admin'),'middleware'=>'Lang'],function(){
 		////////AdminRoutes/*Start*///////////////
 		Route::get('/','Admin\Dashboard@home');
 		Route::any('logout','Admin\AdminAuthenticated@logout');
+		Route::any('logout-client','Admin\ClientAuthenticated@logout');
 		Route::get('account','Admin\AdminAuthenticated@account');
 		Route::post('account','Admin\AdminAuthenticated@account_post');
 		Route::resource('settings','Admin\Settings');
@@ -61,6 +65,8 @@ Route::group(['prefix'=>app('admin'),'middleware'=>'Lang'],function(){
 		Route::post('machines/multi_delete','Admin\Machines@multi_delete'); 
 		Route::resource('offsets','Admin\Offsets'); 
 		Route::post('offsets/multi_delete','Admin\Offsets@multi_delete'); 
+		Route::resource('relueres','Admin\Relueres'); 
+		Route::post('relueres/multi_delete','Admin\Relueres@multi_delete'); 
 		////////AdminRoutes/*End*///////////////
 	});
 

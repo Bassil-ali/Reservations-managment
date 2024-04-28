@@ -29,11 +29,11 @@ class clientsRequest extends FormRequest {
              'second_name'=>'required|string',
              'grade_id'=>'required|integer',
              'type_id'=>'required|integer',
-             'Passowrd'=>'required|string',
+             'password'=>'required|string',
              'username'=>'required|string',
              'direction_id'=>'required|string',
              'active'=>'',
-             'photo'=>'image',
+             'photo'=>'required|image',
              'email'=>'required|string',
 		];
 	}
@@ -44,11 +44,11 @@ class clientsRequest extends FormRequest {
              'second_name'=>'required|string',
              'grade_id'=>'required|integer',
              'type_id'=>'required|integer',
-             'Passowrd'=>'required|string',
+             'password'=>'required|string',
              'username'=>'required|string',
              'direction_id'=>'required|string',
              'active'=>'',
-             'photo'=>'image',
+             'photo'=>'required|image',
              'email'=>'required|string',
 		];
 	}
@@ -71,7 +71,7 @@ class clientsRequest extends FormRequest {
              'second_name'=>trans('admin.second_name'),
              'grade_id'=>trans('admin.grade_id'),
              'type_id'=>trans('admin.type_id'),
-             'Passowrd'=>trans('admin.Passowrd'),
+             'password'=>trans('admin.password'),
              'username'=>trans('admin.username'),
              'direction_id'=>trans('admin.direction_id'),
              'active'=>trans('admin.active'),

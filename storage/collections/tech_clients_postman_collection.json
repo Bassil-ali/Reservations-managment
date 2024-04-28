@@ -1,7 +1,7 @@
 {
     "info": {
-        "_postman_id": "3d6e349a-9f96-470e-9107-bb98b3044652",
-        "name": null,
+        "_postman_id": "d60ee28f-2295-4adc-9c42-816a164b9f03",
+        "name": "tech",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "variable": [
@@ -172,12 +172,6 @@
                                     "description": "normal input text"
                                 },
                                 {
-                                    "key": "Passowrd",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
                                     "key": "username",
                                     "value": "some string",
                                     "type": "text",
@@ -239,12 +233,6 @@
                                 },
                                 {
                                     "key": "second_name",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
-                                    "key": "Passowrd",
                                     "value": "some string",
                                     "type": "text",
                                     "description": "normal input text"

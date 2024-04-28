@@ -13,11 +13,14 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ aurl('logout') }}" class="nav-link"><i class="nav-icon fas fa-sign-out-alt"></i> {{ trans('admin.logout') }}</a>
+        <a href="{{ aurl('logout-client') }}" class="nav-link"><i class="nav-icon fas fa-sign-out-alt"></i> {{ trans('admin.logout') }}</a>
       </li>
+      @if(!auth()->guard('client')->user()->email)
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ aurl('lock/screen') }}?email={{ admin()->user()->email }}" class="nav-link"><i class="nav-icon fa fa-user-lock"></i> {{ trans('admin.lock_screen') }}</a>
+        <a href="{{ aurl('lock/screen') }}?email={{ auth()->check() && auth()->user()->name !== null ? auth()->user()->name : auth()->guard('client')->user()->email }}
+          " class="nav-link"><i class="nav-icon fa fa-user-lock"></i> {{ trans('admin.lock_screen') }}</a>
       </li>
+      @endif
       {{-- <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li> --}}
@@ -162,13 +165,16 @@
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
         @if(!empty(admin()->user()->photo_profile))
-        <img src="{{ it()->url(admin()->user()->photo_profile) }}" class="img-circle elevation-2" alt="{{ admin()->user()->name }}">
+        <img src="{{ it()->url(admin()->user()->photo_profile) }}" class="img-circle elevation-2" alt="{{ auth()->check() && auth()->user()->name !== null ? auth()->user()->name : auth()->guard('client')->user()->email }}
+        ">
         @else
-        <img src="{{ url('assets') }}/img/avatar5.png" class="img-circle elevation-2" alt="{{ admin()->user()->name }}">
+        <img src="{{ url('assets') }}/img/avatar5.png" class="img-circle elevation-2" alt="{{ auth()->check() && auth()->user()->name !== null ? auth()->user()->name : auth()->guard('client')->user()->email }}
+        ">
         @endif
       </div>
       <div class="info">
-        <a href="{{ aurl('account') }}" class="d-block">{{ admin()->user()->name }}</a>
+        <a href="{{ aurl('account') }}" class="d-block">{{ auth()->check() && auth()->user()->name !== null ? auth()->user()->name : auth()->guard('client')->user()->email }}
+        </a>
       </div>
     </div>
 

@@ -9,6 +9,7 @@ with font-awesome or any other icon font library -->
     </p>
   </a>
 </li>
+@if(!auth()->guard('client')->check())
 @if(admin()->user()->role('settings_show'))
 <li class="nav-item">
   <a href="{{ aurl('settings') }}" class="nav-link  {{ active_link('settings','active') }}">
@@ -296,9 +297,9 @@ with font-awesome or any other icon font library -->
 </li>
 @endif
 <!--machines_end_route-->
-
+@endif
 <!--offsets_start_route-->
-@if(admin()->user()->role("offsets_show"))
+@if(auth()->guard('client')->check())
 <li class="nav-item {{active_link('offsets','menu-open')}} ">
   <a href="#" class="nav-link {{active_link('offsets','active')}}">
     <i class="nav-icon fa fa-window-close"></i>
@@ -324,3 +325,31 @@ with font-awesome or any other icon font library -->
 </li>
 @endif
 <!--offsets_end_route-->
+
+<!--relueres_start_route-->
+@if(auth()->guard('client')->check())
+<li class="nav-item {{active_link('relueres','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('relueres','active')}}">
+    <i class="nav-icon fa fa-balance-scale"></i>
+    <p>
+      {{trans('admin.relueres')}} 
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('relueres')}}" class="nav-link  {{active_link('relueres','active')}}">
+        <i class="fa fa-balance-scale nav-icon"></i>
+        <p>{{trans('admin.relueres')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('relueres/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+</li>
+@endif
+<!--relueres_end_route-->

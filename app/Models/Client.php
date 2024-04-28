@@ -1,11 +1,12 @@
 <?php
 namespace App\Models;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 
-// Auto Models By Baboon Script
-// Baboon Maker has been Created And Developed By  [it v 1.6.40]
-// Copyright Reserved  [it v 1.6.40]
-class Client extends Model {
+class Client extends Model implements Authenticatable
+{
+    use AuthenticatableTrait;
 
 protected $table    = 'clients';
 protected $fillable = [
@@ -17,7 +18,7 @@ protected $fillable = [
 
         'type_id',
 
-        'Passowrd',
+        'password',
         'username',
         'direction_id',
 

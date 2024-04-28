@@ -54,6 +54,8 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v1', 'namespace'
 			Route::post("machines/multi_delete","MachinesApi@multi_delete"); 
 			Route::apiResource("offsets","OffsetsApi", ["as" => "api.offsets"]); 
 			Route::post("offsets/multi_delete","OffsetsApi@multi_delete"); 
+			Route::apiResource("relueres","RelueresApi", ["as" => "api.relueres"]); 
+			Route::post("relueres/multi_delete","RelueresApi@multi_delete"); 
 			//Auth-Api-End//
 	});
 	// Insert your Api Here End //

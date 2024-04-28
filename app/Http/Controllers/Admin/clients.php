@@ -4,6 +4,8 @@ use App\Http\Controllers\Controller;
 use App\DataTables\clientsDataTable;
 use Carbon\Carbon;
 use App\Models\Client;
+use Illuminate\Support\Facades\Hash;
+
 
 use App\Http\Controllers\Validations\clientsRequest;
 // Auto Controller Maker By Baboon Script
@@ -60,9 +62,13 @@ class clients extends Controller
              */
             public function store(clientsRequest $request)
             {
+             
                 $data = $request->except("_token", "_method");
+               
             	$data['photo'] = "";
 $data['admin_id'] = admin()->id(); 
+$data['password'] = Hash::make($data['password']);
+
 		  		$clients = Client::create($data); 
                if(request()->hasFile('photo')){
               $clients->photo = it()->upload('photo','clients/'.$clients->id);

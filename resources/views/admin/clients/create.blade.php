@@ -56,8 +56,8 @@
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
-        {!! Form::label('Passowrd',trans('admin.Passowrd')) !!}
-            {!! Form::password('Passowrd',['class'=>'form-control','placeholder'=>trans('admin.Passowrd')]) !!}
+        {!! Form::label('password',trans('admin.password')) !!}
+            {!! Form::password('password',['class'=>'form-control','placeholder'=>trans('admin.password')]) !!}
     </div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">

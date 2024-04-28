@@ -4,18 +4,24 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\Models\Client;
+use App\Models\Reluere;
 use Validator;
-use App\Http\Controllers\ValidationsApi\V1\clientsRequest;
+use App\Http\Controllers\ValidationsApi\V1\RelueresRequest;
 // Auto Controller Maker By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.40]
 // Copyright Reserved  [it v 1.6.40]
-class clientsApi extends Controller{
+class RelueresApi extends Controller{
 	protected $selectColumns = [
 		"id",
-		"first_name",
-		"second_name",
-		"username",
+		"user_id",
+		"code",
+		"format",
+		"poids",
+		"category_id",
+		"decesion_id",
+		"machine_id",
+		"date",
+		"equipe",
 	];
 
             /**
@@ -24,7 +30,7 @@ class clientsApi extends Controller{
              * @return array to assign with index & show methods
              */
             public function arrWith(){
-               return ['grade_id','type_id','direction_id',];
+               return ['user_id','category_id','decesion_id','machine_id',];
             }
 
 
@@ -35,8 +41,8 @@ class clientsApi extends Controller{
              */
             public function index()
             {
-            	$Client = Client::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
-               return successResponseJson(["data"=>$Client]);
+            	$Reluere = Reluere::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
+               return successResponseJson(["data"=>$Reluere]);
             }
 
 
@@ -45,17 +51,17 @@ class clientsApi extends Controller{
              * Store a newly created resource in storage. Api
              * @return \Illuminate\Http\Response
              */
-    public function store(clientsRequest $request)
+    public function store(RelueresRequest $request)
     {
     	$data = $request->except("_token");
     	
               $data["user_id"] = auth()->id(); 
-        $Client = Client::create($data); 
+        $Reluere = Reluere::create($data); 
 
-		  $Client = Client::with($this->arrWith())->find($Client->id,$this->selectColumns);
+		  $Reluere = Reluere::with($this->arrWith())->find($Reluere->id,$this->selectColumns);
         return successResponseJson([
             "message"=>trans("admin.added"),
-            "data"=>$Client
+            "data"=>$Reluere
         ]);
     }
 
@@ -68,15 +74,15 @@ class clientsApi extends Controller{
              */
             public function show($id)
             {
-                $Client = Client::with($this->arrWith())->find($id,$this->selectColumns);
-            	if(is_null($Client) || empty($Client)){
+                $Reluere = Reluere::with($this->arrWith())->find($id,$this->selectColumns);
+            	if(is_null($Reluere) || empty($Reluere)){
             	 return errorResponseJson([
             	  "message"=>trans("admin.undefinedRecord")
             	 ]);
             	}
 
                  return successResponseJson([
-              "data"=> $Client
+              "data"=> $Reluere
               ]);  ;
             }
 
@@ -88,7 +94,7 @@ class clientsApi extends Controller{
              */
             public function updateFillableColumns() {
 				       $fillableCols = [];
-				       foreach (array_keys((new clientsRequest)->attributes()) as $fillableUpdate) {
+				       foreach (array_keys((new RelueresRequest)->attributes()) as $fillableUpdate) {
   				        if (!is_null(request($fillableUpdate))) {
 						  $fillableCols[$fillableUpdate] = request($fillableUpdate);
 						}
@@ -96,10 +102,10 @@ class clientsApi extends Controller{
   				     return $fillableCols;
   	     		}
 
-            public function update(clientsRequest $request,$id)
+            public function update(RelueresRequest $request,$id)
             {
-            	$Client = Client::find($id);
-            	if(is_null($Client) || empty($Client)){
+            	$Reluere = Reluere::find($id);
+            	if(is_null($Reluere) || empty($Reluere)){
             	 return errorResponseJson([
             	  "message"=>trans("admin.undefinedRecord")
             	 ]);
@@ -108,12 +114,12 @@ class clientsApi extends Controller{
             	$data = $this->updateFillableColumns();
                  
               $data["user_id"] = auth()->id(); 
-              Client::where("id",$id)->update($data);
+              Reluere::where("id",$id)->update($data);
 
-              $Client = Client::with($this->arrWith())->find($id,$this->selectColumns);
+              $Reluere = Reluere::with($this->arrWith())->find($id,$this->selectColumns);
               return successResponseJson([
                "message"=>trans("admin.updated"),
-               "data"=> $Client
+               "data"=> $Reluere
                ]);
             }
 
@@ -124,20 +130,17 @@ class clientsApi extends Controller{
              */
             public function destroy($id)
             {
-               $clients = Client::find($id);
-            	if(is_null($clients) || empty($clients)){
+               $relueres = Reluere::find($id);
+            	if(is_null($relueres) || empty($relueres)){
             	 return errorResponseJson([
             	  "message"=>trans("admin.undefinedRecord")
             	 ]);
             	}
 
 
-              if(!empty($clients->photo)){
-               it()->delete($clients->photo);
-              }
-               it()->delete("client",$id);
+               it()->delete("reluere",$id);
 
-               $clients->delete();
+               $relueres->delete();
                return successResponseJson([
                 "message"=>trans("admin.deleted")
                ]);
@@ -150,36 +153,30 @@ class clientsApi extends Controller{
                 $data = request("selected_data");
                 if(is_array($data)){
                     foreach($data as $id){
-                    $clients = Client::find($id);
-	            	if(is_null($clients) || empty($clients)){
+                    $relueres = Reluere::find($id);
+	            	if(is_null($relueres) || empty($relueres)){
 	            	 return errorResponseJson([
 	            	  "message"=>trans("admin.undefinedRecord")
 	            	 ]);
 	            	}
 
-                    	if(!empty($clients->photo)){
-                    	it()->delete($clients->photo);
-                    	}
-                    	it()->delete("client",$id);
-                    	$clients->delete();
+                    	it()->delete("reluere",$id);
+                    	$relueres->delete();
                     }
                     return successResponseJson([
                      "message"=>trans("admin.deleted")
                     ]);
                 }else {
-                    $clients = Client::find($data);
-	            	if(is_null($clients) || empty($clients)){
+                    $relueres = Reluere::find($data);
+	            	if(is_null($relueres) || empty($relueres)){
 	            	 return errorResponseJson([
 	            	  "message"=>trans("admin.undefinedRecord")
 	            	 ]);
 	            	}
  
-                    	if(!empty($clients->photo)){
-                    	it()->delete($clients->photo);
-                    	}
-                    	it()->delete("client",$data);
+                    	it()->delete("reluere",$data);
 
-                    $clients->delete();
+                    $relueres->delete();
                     return successResponseJson([
                      "message"=>trans("admin.deleted")
                     ]);
