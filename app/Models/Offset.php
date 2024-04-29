@@ -17,7 +17,7 @@ protected $fillable = [
         'client_id',
 
         'code',
-        'cahier number',
+        'cahier_number',
         'grammage',
         'format',
         'poids',
@@ -34,17 +34,6 @@ protected $fillable = [
 		'updated_at',
 		'deleted_at',
 	];
-
-	/**
-	 * admin id relation method to get how add this data
-	 * @type hasOne
-	 * @param void
-	 * @return object data
-	 */
-   public function admin_id() {
-	   return $this->hasOne(\App\Models\Admin::class, 'id', 'admin_id');
-   }
-	
 
 	/**
     * client_id relation method

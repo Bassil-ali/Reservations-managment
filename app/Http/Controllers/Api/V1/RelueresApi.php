@@ -55,7 +55,6 @@ class RelueresApi extends Controller{
     {
     	$data = $request->except("_token");
     	
-              $data["user_id"] = auth()->id(); 
         $Reluere = Reluere::create($data); 
 
 		  $Reluere = Reluere::with($this->arrWith())->find($Reluere->id,$this->selectColumns);
@@ -113,7 +112,6 @@ class RelueresApi extends Controller{
 
             	$data = $this->updateFillableColumns();
                  
-              $data["user_id"] = auth()->id(); 
               Reluere::where("id",$id)->update($data);
 
               $Reluere = Reluere::with($this->arrWith())->find($id,$this->selectColumns);

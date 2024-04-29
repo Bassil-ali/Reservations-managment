@@ -19,7 +19,8 @@ class OffsetsDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('actions', 'admin.offsets.buttons.actions')
-   		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
+
+   		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
                   <label for="selectdata{{ $id }}"></label>
                 </div>')
@@ -89,7 +90,7 @@ class OffsetsDataTable extends DataTable
 
 
             
-            ". filterElement('1,3,1,4,1,5,1,6,1,7,1,9,1,10,1,11', 'input') . "
+            ". filterElement('1,3,1,5,1,6,1,7,1,9,1,10,1,11', 'input') . "
 
                         //client_idclient_id,code,cahier number,grammage,format,poids,category_id,date,equipe,visa,machine_id,decision_id2
             ". filterElement('2', 'select', \App\Models\Client::pluck("first_name","first_name")) . "
@@ -176,11 +177,6 @@ class OffsetsDataTable extends DataTable
                  'name'=>'code',
                  'data'=>'code',
                  'title'=>trans('admin.code'),
-		    ],
-				[
-                 'name'=>'cahier number',
-                 'data'=>'cahier number',
-                 'title'=>trans('admin.cahier number'),
 		    ],
 				[
                  'name'=>'grammage',

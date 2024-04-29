@@ -62,19 +62,13 @@
 			</div>
 			<div class="clearfix"></div>
 			<hr />
-			@if(!empty($offsets->admin_id()->first()))
-			<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-				<b>{{trans('admin.admin_id')}} :</b>
-				{{ $offsets->admin_id()->first()->name }}
-			</div>
-			@endif
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.code')}} :</b>
 				{!! $offsets->code !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.cahier number')}} :</b>
-				{!! $offsets->cahier number !!}
+				<b>{{trans('admin.cahier_number')}} :</b>
+				{!! $offsets->cahier_number !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.grammage')}} :</b>

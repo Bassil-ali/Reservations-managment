@@ -29,17 +29,6 @@ protected $fillable = [
 	];
 
 	/**
-	 * admin id relation method to get how add this data
-	 * @type hasOne
-	 * @param void
-	 * @return object data
-	 */
-   public function admin_id() {
-	   return $this->hasOne(\App\Models\Admin::class, 'id', 'admin_id');
-   }
-	
-
-	/**
     * user_id relation method
     * @param void
     * @return object data

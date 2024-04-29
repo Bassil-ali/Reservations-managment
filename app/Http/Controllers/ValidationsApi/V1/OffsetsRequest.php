@@ -27,7 +27,6 @@ class OffsetsRequest extends FormRequest {
 		return [
              'client_id'=>'required|integer',
              'code'=>'required|numeric|integer',
-             'cahier number'=>'required',
              'grammage'=>'required|string',
              'format'=>'required',
              'poids'=>'required',
@@ -43,7 +42,6 @@ class OffsetsRequest extends FormRequest {
 		return [
              'client_id'=>'required|integer',
              'code'=>'required|numeric|integer',
-             'cahier number'=>'required',
              'grammage'=>'required|string',
              'format'=>'required',
              'poids'=>'required',
@@ -70,7 +68,6 @@ class OffsetsRequest extends FormRequest {
 		return [
              'client_id'=>trans('admin.client_id'),
              'code'=>trans('admin.code'),
-             'cahier number'=>trans('admin.cahier number'),
              'grammage'=>trans('admin.grammage'),
              'format'=>trans('admin.format'),
              'poids'=>trans('admin.poids'),

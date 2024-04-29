@@ -16,7 +16,6 @@ class CreateRelueresTable extends Migration
     {
         Schema::create('relueres', function (Blueprint $table) {
             $table->bigIncrements('id');
-$table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDelete("cascade");
             $table->foreignId("user_id")->constrained("clients")->references("id")->onUpdate("cascade")->onDelete("cascade");
             $table->string('code');
             $table->string('format');

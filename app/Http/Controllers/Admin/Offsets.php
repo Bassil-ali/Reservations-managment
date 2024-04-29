@@ -12,21 +12,21 @@ use App\Http\Controllers\Validations\OffsetsRequest;
 class Offsets extends Controller
 {
 
-	// public function __construct() {
+	public function __construct() {
 
-	// 	$this->middleware('AdminRole:offsets_show', [
-	// 		'only' => ['index', 'show'],
-	// 	]);
-	// 	$this->middleware('AdminRole:offsets_add', [
-	// 		'only' => ['create', 'store'],
-	// 	]);
-	// 	$this->middleware('AdminRole:offsets_edit', [
-	// 		'only' => ['edit', 'update'],
-	// 	]);
-	// 	$this->middleware('AdminRole:offsets_delete', [
-	// 		'only' => ['destroy', 'multi_delete'],
-	// 	]);
-	// }
+		$this->middleware('AdminRole:offsets_show', [
+			'only' => ['index', 'show'],
+		]);
+		$this->middleware('AdminRole:offsets_add', [
+			'only' => ['create', 'store'],
+		]);
+		$this->middleware('AdminRole:offsets_edit', [
+			'only' => ['edit', 'update'],
+		]);
+		$this->middleware('AdminRole:offsets_delete', [
+			'only' => ['destroy', 'multi_delete'],
+		]);
+	}
 
 	
 
@@ -62,7 +62,6 @@ class Offsets extends Controller
             {
                 $data = $request->except("_token", "_method");
             	              $data['date'] = date('Y-m-d H:i', strtotime(request('date')));
-$data['admin_id'] = admin()->id(); 
 		  		$offsets = Offset::create($data); 
                 $redirect = isset($request["add_back"])?"/create":"";
                 return redirectWithSuccess(aurl('offsets'.$redirect), trans('admin.added')); }
@@ -126,7 +125,6 @@ $data['admin_id'] = admin()->id();
               	return backWithError(trans("admin.undefinedRecord"),aurl("offsets"));
               }
               $data = $this->updateFillableColumns(); 
-              $data['admin_id'] = admin()->id(); 
               $data['date'] = date('Y-m-d H:i', strtotime(request('date')));
               Offset::where('id',$id)->update($data);
               $redirect = isset($request["save_back"])?"/".$id."/edit":"";

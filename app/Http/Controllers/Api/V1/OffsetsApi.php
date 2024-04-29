@@ -15,7 +15,6 @@ class OffsetsApi extends Controller{
 		"id",
 		"client_id",
 		"code",
-		"cahier number",
 		"grammage",
 		"format",
 		"poids",
@@ -56,7 +55,6 @@ class OffsetsApi extends Controller{
     {
     	$data = $request->except("_token");
     	
-              $data["user_id"] = auth()->id(); 
         $Offset = Offset::create($data); 
 
 		  $Offset = Offset::with($this->arrWith())->find($Offset->id,$this->selectColumns);
@@ -114,7 +112,6 @@ class OffsetsApi extends Controller{
 
             	$data = $this->updateFillableColumns();
                  
-              $data["user_id"] = auth()->id(); 
               Offset::where("id",$id)->update($data);
 
               $Offset = Offset::with($this->arrWith())->find($id,$this->selectColumns);

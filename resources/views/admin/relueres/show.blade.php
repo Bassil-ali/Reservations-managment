@@ -62,12 +62,6 @@
 			</div>
 			<div class="clearfix"></div>
 			<hr />
-			@if(!empty($relueres->admin_id()->first()))
-			<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-				<b>{{trans('admin.admin_id')}} :</b>
-				{{ $relueres->admin_id()->first()->name }}
-			</div>
-			@endif
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.code')}} :</b>
 				{!! $relueres->code !!}

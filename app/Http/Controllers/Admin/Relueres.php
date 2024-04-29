@@ -12,21 +12,21 @@ use App\Http\Controllers\Validations\RelueresRequest;
 class Relueres extends Controller
 {
 
-	// public function __construct() {
+	public function __construct() {
 
-	// 	$this->middleware('AdminRole:relueres_show', [
-	// 		'only' => ['index', 'show'],
-	// 	]);
-	// 	$this->middleware('AdminRole:relueres_add', [
-	// 		'only' => ['create', 'store'],
-	// 	]);
-	// 	$this->middleware('AdminRole:relueres_edit', [
-	// 		'only' => ['edit', 'update'],
-	// 	]);
-	// 	$this->middleware('AdminRole:relueres_delete', [
-	// 		'only' => ['destroy', 'multi_delete'],
-	// 	]);
-	// }
+		$this->middleware('AdminRole:relueres_show', [
+			'only' => ['index', 'show'],
+		]);
+		$this->middleware('AdminRole:relueres_add', [
+			'only' => ['create', 'store'],
+		]);
+		$this->middleware('AdminRole:relueres_edit', [
+			'only' => ['edit', 'update'],
+		]);
+		$this->middleware('AdminRole:relueres_delete', [
+			'only' => ['destroy', 'multi_delete'],
+		]);
+	}
 
 	
 
@@ -62,7 +62,6 @@ class Relueres extends Controller
             {
                 $data = $request->except("_token", "_method");
             	              $data['date'] = date('Y-m-d H:i', strtotime(request('date')));
-$data['admin_id'] = admin()->id(); 
 		  		$relueres = Reluere::create($data); 
                 $redirect = isset($request["add_back"])?"/create":"";
                 return redirectWithSuccess(aurl('relueres'.$redirect), trans('admin.added')); }
@@ -126,7 +125,6 @@ $data['admin_id'] = admin()->id();
               	return backWithError(trans("admin.undefinedRecord"),aurl("relueres"));
               }
               $data = $this->updateFillableColumns(); 
-              $data['admin_id'] = admin()->id(); 
               $data['date'] = date('Y-m-d H:i', strtotime(request('date')));
               Reluere::where('id',$id)->update($data);
               $redirect = isset($request["save_back"])?"/".$id."/edit":"";

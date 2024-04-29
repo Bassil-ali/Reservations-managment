@@ -75,8 +75,8 @@
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
-        {!! Form::label('cahier number',trans('admin.cahier number'),['class'=>'control-label']) !!}
-        {!! Form::text('cahier number', $offsets->cahier number ,['class'=>'form-control','placeholder'=>trans('admin.cahier number')]) !!}
+        {!! Form::label('cahier_number',trans('admin.cahier_number'),['class'=>'control-label']) !!}
+        {!! Form::text('cahier_number', $offsets->cahier_number ,['class'=>'form-control','placeholder'=>trans('admin.cahier_number')]) !!}
     </div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">

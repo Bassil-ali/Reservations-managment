@@ -16,10 +16,9 @@ class CreateOffsetsTable extends Migration
     {
         Schema::create('offsets', function (Blueprint $table) {
             $table->bigIncrements('id');
-$table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDelete("cascade");
             $table->foreignId("client_id")->constrained("clients")->references("id")->onUpdate("cascade")->onDelete("cascade");
             $table->bigInteger('code');
-            $table->string('cahier number');
+            $table->string('cahier_number');
             $table->string('grammage');
             $table->string('format');
             $table->string('poids');
