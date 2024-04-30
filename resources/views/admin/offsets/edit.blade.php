@@ -60,12 +60,26 @@
 										
 {!! Form::open(['url'=>aurl('/offsets/'.$offsets->id),'method'=>'put','id'=>'offsets','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
 <div class="row">
-
-<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+@if(auth()->guard('client')->check())
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 hidden">
 		<div class="form-group">
 				{!! Form::label('client_id',trans('admin.client_id'),['class'=>'control-label']) !!}
-{!! Form::select('client_id',App\Models\Client::pluck('first_name','id'), $offsets->client_id ,['class'=>'form-control select2','placeholder'=>trans('admin.client_id')]) !!}
+{!! Form::select('client_id',App\Models\Client::pluck('first_name','second_name','id'), $offsets->client_id ,['class'=>'form-control select2','placeholder'=>trans('admin.client_id')]) !!}
 		</div>
+</div>
+@else
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 ">
+	<div class="form-group">
+			{!! Form::label('client_id',trans('admin.client_id'),['class'=>'control-label']) !!}
+{!! Form::select('client_id',App\Models\Client::pluck('first_name','second_name','id'), $offsets->client_id ,['class'=>'form-control select2','placeholder'=>trans('admin.client_id')]) !!}
+	</div>
+</div>
+@endif
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+	<div class="form-group">
+			{!! Form::label('machine_id',trans('admin.machine_id'),['class'=>'control-label']) !!}
+{!! Form::select('machine_id',App\Models\Machine::pluck('name','id'), $offsets->machine_id ,['class'=>'form-control select2','placeholder'=>trans('admin.machine_id')]) !!}
+	</div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
@@ -86,10 +100,10 @@
     </div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-    <div class="form-group">
-        {!! Form::label('format',trans('admin.format'),['class'=>'control-label']) !!}
-        {!! Form::text('format', $offsets->format ,['class'=>'form-control','placeholder'=>trans('admin.format')]) !!}
-    </div>
+		<div class="form-group">
+				{!! Form::label('format',trans('admin.format'),['class'=>'control-label']) !!}
+{!! Form::select('format',['1'=>trans('admin.1'),'0'=>trans('admin.0'),], $offsets->format ,['class'=>'form-control select2','placeholder'=>trans('admin.format')]) !!}
+		</div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
@@ -131,12 +145,7 @@
         {!! Form::text('visa', $offsets->visa ,['class'=>'form-control','placeholder'=>trans('admin.visa')]) !!}
     </div>
 </div>
-<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-		<div class="form-group">
-				{!! Form::label('machine_id',trans('admin.machine_id'),['class'=>'control-label']) !!}
-{!! Form::select('machine_id',App\Models\Machine::pluck('name','id'), $offsets->machine_id ,['class'=>'form-control select2','placeholder'=>trans('admin.machine_id')]) !!}
-		</div>
-</div>
+
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 		<div class="form-group">
 				{!! Form::label('decision_id',trans('admin.decision_id'),['class'=>'control-label']) !!}

@@ -1,14 +1,11 @@
 <?php
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 // Auto Models By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.40]
 // Copyright Reserved  [it v 1.6.40]
 class Offset extends Model {
-	use SoftDeletes;
-	protected $dates = ['deleted_at'];
 
 protected $table    = 'offsets';
 protected $fillable = [
@@ -20,6 +17,7 @@ protected $fillable = [
         'cahier_number',
         'grammage',
         'format',
+
         'poids',
         'category_id',
 
@@ -32,7 +30,6 @@ protected $fillable = [
 
 		'created_at',
 		'updated_at',
-		'deleted_at',
 	];
 
 	/**

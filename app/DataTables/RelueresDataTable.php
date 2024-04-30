@@ -20,6 +20,8 @@ class RelueresDataTable extends DataTable
         return datatables($query)
             ->addColumn('actions', 'admin.relueres.buttons.actions')
 
+            ->addColumn('format', '{{ trans("admin.".$format) }}')
+
    		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
                   <label for="selectdata{{ $id }}"></label>
@@ -35,6 +37,9 @@ class RelueresDataTable extends DataTable
      */
 	public function query()
     {
+      if(auth()->guard('client')->check()){
+        return Reluere::query()->where('client_id',auth()->guard('client')->user()->id)->with(['user_id','category_id','decesion_id','machine_id',])->select("relueres.*");
+      }
         return Reluere::query()->with(['user_id','category_id','decesion_id','machine_id',])->select("relueres.*");
 
     }
@@ -94,10 +99,15 @@ class RelueresDataTable extends DataTable
 
 
             
-            ". filterElement('1,3,1,4,1,5,1,9,1,10', 'input') . "
+            ". filterElement('1,3,1,5,1,9,1,10', 'input') . "
 
                         //user_iduser_id,code,format,poids,category_id,decesion_id,machine_id,date,equipe2
             ". filterElement('2', 'select', \App\Models\Client::pluck("first_name","first_name")) . "
+            //formatuser_id,code,format,poids,category_id,decesion_id,machine_id,date,equipe4
+            ". filterElement('4', 'select', [
+            '1'=>trans('admin.1'),
+            '0'=>trans('admin.0'),
+            ]) . "
             //category_iduser_id,code,format,poids,category_id,decesion_id,machine_id,date,equipe6
             ". filterElement('6', 'select', \App\Models\Category::pluck("name","name")) . "
             //decesion_iduser_id,code,format,poids,category_id,decesion_id,machine_id,date,equipe7
@@ -177,13 +187,18 @@ class RelueresDataTable extends DataTable
                  'data'=>'user_id.first_name',
                  'title'=>trans('admin.user_id'),
 		    ],
+        [
+          'name'=>'machine_id.name',
+          'data'=>'machine_id.name',
+          'title'=>trans('admin.machine_id'),
+ ],
 				[
                  'name'=>'code',
                  'data'=>'code',
                  'title'=>trans('admin.code'),
 		    ],
 				[
-                 'name'=>'format',
+                 'name'=>'relueres.format',
                  'data'=>'format',
                  'title'=>trans('admin.format'),
 		    ],
@@ -202,11 +217,7 @@ class RelueresDataTable extends DataTable
                  'data'=>'decesion_id.name',
                  'title'=>trans('admin.decesion_id'),
 		    ],
-				[
-                 'name'=>'machine_id.name',
-                 'data'=>'machine_id.name',
-                 'title'=>trans('admin.machine_id'),
-		    ],
+				
 				[
                  'name'=>'date',
                  'data'=>'date',
@@ -218,24 +229,6 @@ class RelueresDataTable extends DataTable
                  'title'=>trans('admin.equipe'),
 		    ],
             [
-	                'name' => 'created_at',
-	                'data' => 'created_at',
-	                'title' => trans('admin.created_at'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-	                    [
-	                'name' => 'updated_at',
-	                'data' => 'updated_at',
-	                'title' => trans('admin.updated_at'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-	                    [
 	                'name' => 'actions',
 	                'data' => 'actions',
 	                'title' => trans('admin.actions'),

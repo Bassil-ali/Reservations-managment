@@ -15,9 +15,7 @@ class MachinesApi extends Controller{
 		"id",
 		"code",
 		"date",
-		"capacite production",
 		"fiche",
-		"date finproduction",
 		"photo",
 	];
 

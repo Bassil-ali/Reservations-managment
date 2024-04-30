@@ -300,54 +300,72 @@ with font-awesome or any other icon font library -->
 @endif
 <!--offsets_start_route-->
 
-<li class="nav-item {{active_link('offsets','menu-open')}} ">
-  <a href="#" class="nav-link {{active_link('offsets','active')}}">
-    <i class="nav-icon fa fa-window-close"></i>
-    <p>
-      {{trans('admin.offsets')}} 
-      <i class="right fas fa-angle-left"></i>
-    </p>
-  </a>
-  <ul class="nav nav-treeview">
-    <li class="nav-item">
-      <a href="{{aurl('offsets')}}" class="nav-link  {{active_link('offsets','active')}}">
-        <i class="fa fa-window-close nav-icon"></i>
-        <p>{{trans('admin.offsets')}} </p>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="{{ aurl('offsets/create') }}" class="nav-link">
-        <i class="fas fa-plus nav-icon"></i>
-        <p>{{trans('admin.create')}} </p>
-      </a>
-    </li>
-  </ul>
-</li>
 
 <!--offsets_end_route-->
 
 <!--relueres_start_route-->
 
-<li class="nav-item {{active_link('relueres','menu-open')}} ">
-  <a href="#" class="nav-link {{active_link('relueres','active')}}">
+
+
+<li class="nav-item {{active_link('relueres','menu-open')}} {{active_link('offsets','active')}}">
+  <a href="#" class="nav-link {{active_link('relueres','active')}} {{active_link('offsets','active')}} ">
     <i class="nav-icon fa fa-balance-scale"></i>
     <p>
-      {{trans('admin.relueres')}} 
+      {{trans('admin.Dilemmas')}} 
       <i class="right fas fa-angle-left"></i>
     </p>
   </a>
   <ul class="nav nav-treeview">
     <li class="nav-item">
-      <a href="{{aurl('relueres')}}" class="nav-link  {{active_link('relueres','active')}}">
-        <i class="fa fa-balance-scale nav-icon"></i>
-        <p>{{trans('admin.relueres')}} </p>
-      </a>
+      <li class="nav-item {{active_link('offsets','menu-open')}} ">
+        <a href="#" class="nav-link {{active_link('offsets','active')}}">
+          <i class="nav-icon fa fa-window-close"></i>
+          <p>
+            {{trans('admin.offsets')}} 
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="{{aurl('offsets')}}" class="nav-link  {{active_link('offsets','active')}}">
+              <i class="fa fa-window-close nav-icon"></i>
+              <p>{{trans('admin.offsets')}} </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ aurl('offsets/create') }}" class="nav-link">
+              <i class="fas fa-plus nav-icon"></i>
+              <p>{{trans('admin.create')}} </p>
+            </a>
+          </li>
+        </ul>
+      </li>
+      
     </li>
     <li class="nav-item">
-      <a href="{{ aurl('relueres/create') }}" class="nav-link">
-        <i class="fas fa-plus nav-icon"></i>
-        <p>{{trans('admin.create')}} </p>
-      </a>
+      <li class="nav-item {{active_link('relueres','menu-open')}} ">
+        <a href="#" class="nav-link {{active_link('relueres','active')}}">
+          <i class="nav-icon fa fa-balance-scale"></i>
+          <p>
+            {{trans('admin.relueres')}} 
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="{{aurl('relueres')}}" class="nav-link  {{active_link('relueres','active')}}">
+              <i class="fa fa-balance-scale nav-icon"></i>
+              <p>{{trans('admin.relueres')}} </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ aurl('relueres/create') }}" class="nav-link">
+              <i class="fas fa-plus nav-icon"></i>
+              <p>{{trans('admin.create')}} </p>
+            </a>
+          </li>
+        </ul>
+      </li>
     </li>
   </ul>
 </li>

@@ -27,7 +27,7 @@ class RelueresRequest extends FormRequest {
 		return [
              'user_id'=>'required|integer',
              'code'=>'required|string',
-             'format'=>'required|string',
+             'format'=>'required|integer|in:1,0',
              'poids'=>'required|string',
              'category_id'=>'required|integer',
              'decesion_id'=>'required|integer',
@@ -42,7 +42,7 @@ class RelueresRequest extends FormRequest {
 		return [
              'user_id'=>'required|integer',
              'code'=>'required|string',
-             'format'=>'required|string',
+             'format'=>'required|integer|in:1,0',
              'poids'=>'required|string',
              'category_id'=>'required|integer',
              'decesion_id'=>'required|integer',

@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "c2998dc0-6a8a-4ee9-ae6f-baece6a798bc",
+        "_postman_id": "473d15fb-0327-476a-bec3-08b8f35e7bf6",
         "name": "tech",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
@@ -173,9 +173,9 @@
                                 },
                                 {
                                     "key": "format",
-                                    "value": "some string",
+                                    "value": "1",
                                     "type": "text",
-                                    "description": "normal input text"
+                                    "description": "Dropdown data (1,0)"
                                 },
                                 {
                                     "key": "poids",
@@ -275,9 +275,9 @@
                                 },
                                 {
                                     "key": "format",
-                                    "value": "some string",
+                                    "value": "1",
                                     "type": "text",
-                                    "description": "normal input text"
+                                    "description": "Dropdown data (1,0)"
                                 },
                                 {
                                     "key": "poids",

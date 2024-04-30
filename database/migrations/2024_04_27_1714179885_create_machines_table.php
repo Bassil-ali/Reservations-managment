@@ -20,9 +20,9 @@ $table->foreignId("admin_id")->constrained("admins")->onUpdate("cascade")->onDel
             $table->string('code');
             $table->string('name')->nullable();
             $table->dateTime('date');
-            $table->string('capacite production');
-            $table->string('fiche');
-            $table->string('date finproduction');
+            $table->string('capacite_production');
+            $table->longtext('fiche');
+            $table->string('date_finproduction');
             $table->string('photo');
 			$table->softDeletes();
 			$table->timestamps();

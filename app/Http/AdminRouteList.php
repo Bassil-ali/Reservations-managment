@@ -8,8 +8,8 @@
 return [
 	"offsets"=>["create","read","update","delete"],
 	"relueres"=>["create","read","update","delete"],
-	"clients"=>["create","read","update","delete"],
 	"machines"=>["create","read","update","delete"],
+	"clients"=>["create","read","update","delete"],
 	"grades"=>["create","read","update","delete"],
 	"decesions"=>["create","read","update","delete"],
 	"responses"=>["create","read","update","delete"],

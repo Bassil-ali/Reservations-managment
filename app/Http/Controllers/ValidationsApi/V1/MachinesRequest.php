@@ -27,9 +27,7 @@ class MachinesRequest extends FormRequest {
 		return [
              'code'=>'required',
              'date'=>'required',
-             'capacite production'=>'required|string',
-             'fiche'=>'required',
-             'date finproduction'=>'required',
+             'fiche'=>'required|string',
              'photo'=>'required|image',
 		];
 	}
@@ -39,9 +37,7 @@ class MachinesRequest extends FormRequest {
 		return [
              'code'=>'required',
              'date'=>'required',
-             'capacite production'=>'required|string',
-             'fiche'=>'required',
-             'date finproduction'=>'required',
+             'fiche'=>'required|string',
              'photo'=>'required|image',
 		];
 	}
@@ -62,9 +58,7 @@ class MachinesRequest extends FormRequest {
 		return [
              'code'=>trans('admin.code'),
              'date'=>trans('admin.date'),
-             'capacite production'=>trans('admin.capacite production'),
              'fiche'=>trans('admin.fiche'),
-             'date finproduction'=>trans('admin.date finproduction'),
              'photo'=>trans('admin.photo'),
 		];
 	}

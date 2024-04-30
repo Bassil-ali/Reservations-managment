@@ -81,16 +81,16 @@
 				{!! $machines->date !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.capacite production')}} :</b>
-				{!! $machines->capacite production !!}
+				<b>{{trans('admin.capacite_production')}} :</b>
+				{!! $machines->capacite_production !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.fiche')}} :</b>
 				{!! $machines->fiche !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.date finproduction')}} :</b>
-				{!! $machines->date finproduction !!}
+				<b>{{trans('admin.date_finproduction')}} :</b>
+				{!! $machines->date_finproduction !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.photo')}} :</b>

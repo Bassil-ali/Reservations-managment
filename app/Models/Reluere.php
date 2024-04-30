@@ -15,6 +15,7 @@ protected $fillable = [
 
         'code',
         'format',
+
         'poids',
         'category_id',
 

@@ -30,10 +30,25 @@
 {!! Form::open(['url'=>aurl('/relueres'),'id'=>'relueres','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
 <div class="row">
 
+	@if (auth()->guard('client')->check())
+	<<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 hidden">
+		<div class="form-group">
+			{!! Form::label('client_id',trans('admin.client_id')) !!}
+			{!! Form::text('client_id',auth()->guard('client')->user()->id,old('client_id'),['class'=>'form-controlt','placeholder'=>trans('admin.choose')]) !!}
+		</div>
+	</div>
+	@else
+	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+		<div class="form-group">
+			{!! Form::label('client_id',trans('admin.client_id')) !!}
+			{!! Form::select('client_id',App\Models\Client::pluck('first_name','second_name','id'),old('client_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+		</div>
+	</div>
+	@endif
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 	<div class="form-group">
-		{!! Form::label('user_id',trans('admin.user_id')) !!}
-		{!! Form::select('user_id',App\Models\Client::pluck('first_name','id'),old('user_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+		{!! Form::label('machine_id',trans('admin.machine_id')) !!}
+		{!! Form::select('machine_id',App\Models\Machine::pluck('name','id'),old('machine_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 	</div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
@@ -43,10 +58,10 @@
     </div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-    <div class="form-group">
-        {!! Form::label('format',trans('admin.format'),['class'=>' control-label']) !!}
-            {!! Form::text('format',old('format'),['class'=>'form-control','placeholder'=>trans('admin.format')]) !!}
-    </div>
+	<div class="form-group">
+		{!! Form::label('format',trans('admin.format')) !!}
+		{!! Form::select('format',['1'=>trans('admin.1'),'0'=>trans('admin.0'),],old('format'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+	</div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
@@ -66,12 +81,7 @@
 		{!! Form::select('decesion_id',App\Models\Decesion::pluck('name','id'),old('decesion_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 	</div>
 </div>
-<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-	<div class="form-group">
-		{!! Form::label('machine_id',trans('admin.machine_id')) !!}
-		{!! Form::select('machine_id',App\Models\Machine::pluck('name','id'),old('machine_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
-	</div>
-</div>
+
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <!-- Date range -->
     <div class="form-group">

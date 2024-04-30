@@ -20,6 +20,8 @@ class OffsetsDataTable extends DataTable
         return datatables($query)
             ->addColumn('actions', 'admin.offsets.buttons.actions')
 
+            ->addColumn('format', '{{ trans("admin.".$format) }}')
+
    		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
                   <label for="selectdata{{ $id }}"></label>
@@ -35,6 +37,9 @@ class OffsetsDataTable extends DataTable
      */
 	public function query()
     {
+      if(auth()->guard('client')->check()){
+        return Offset::query()->where('client_id',auth()->guard('client')->user()->id)->with(['client_id','category_id','machine_id','decision_id',])->select("offsets.*");
+      }
         return Offset::query()->with(['client_id','category_id','machine_id','decision_id',])->select("offsets.*");
 
     }
@@ -90,15 +95,20 @@ class OffsetsDataTable extends DataTable
 
 
             
-            ". filterElement('1,3,1,5,1,6,1,7,1,9,1,10,1,11', 'input') . "
+            ". filterElement('1,3,1,4,1,5,1,7,1,9,1,10,1,11', 'input') . "
 
-                        //client_idclient_id,code,cahier number,grammage,format,poids,category_id,date,equipe,visa,machine_id,decision_id2
+                        //client_idclient_id,code,cahier_number,grammage,format,poids,category_id,date,equipe,visa,machine_id,decision_id2
             ". filterElement('2', 'select', \App\Models\Client::pluck("first_name","first_name")) . "
-            //category_idclient_id,code,cahier number,grammage,format,poids,category_id,date,equipe,visa,machine_id,decision_id8
+            //formatclient_id,code,cahier_number,grammage,format,poids,category_id,date,equipe,visa,machine_id,decision_id6
+            ". filterElement('6', 'select', [
+            '1'=>trans('admin.1'),
+            '0'=>trans('admin.0'),
+            ]) . "
+            //category_idclient_id,code,cahier_number,grammage,format,poids,category_id,date,equipe,visa,machine_id,decision_id8
             ". filterElement('8', 'select', \App\Models\Category::pluck("name","name")) . "
-            //machine_idclient_id,code,cahier number,grammage,format,poids,category_id,date,equipe,visa,machine_id,decision_id12
+            //machine_idclient_id,code,cahier_number,grammage,format,poids,category_id,date,equipe,visa,machine_id,decision_id12
             ". filterElement('12', 'select', \App\Models\Machine::pluck("name","name")) . "
-            //decision_idclient_id,code,cahier number,grammage,format,poids,category_id,date,equipe,visa,machine_id,decision_id13
+            //decision_idclient_id,code,cahier_number,grammage,format,poids,category_id,date,equipe,visa,machine_id,decision_id13
             ". filterElement('13', 'select', \App\Models\Decesion::pluck("name","name")) . "
 
 
@@ -173,10 +183,20 @@ class OffsetsDataTable extends DataTable
                  'data'=>'client_id.first_name',
                  'title'=>trans('admin.client_id'),
 		    ],
+        [
+          'name'=>'machine_id.name',
+          'data'=>'machine_id.name',
+          'title'=>trans('admin.machine_id'),
+ ],
 				[
                  'name'=>'code',
                  'data'=>'code',
                  'title'=>trans('admin.code'),
+		    ],
+				[
+                 'name'=>'cahier_number',
+                 'data'=>'cahier_number',
+                 'title'=>trans('admin.cahier_number'),
 		    ],
 				[
                  'name'=>'grammage',
@@ -184,7 +204,7 @@ class OffsetsDataTable extends DataTable
                  'title'=>trans('admin.grammage'),
 		    ],
 				[
-                 'name'=>'format',
+                 'name'=>'offsets.format',
                  'data'=>'format',
                  'title'=>trans('admin.format'),
 		    ],
@@ -213,35 +233,13 @@ class OffsetsDataTable extends DataTable
                  'data'=>'visa',
                  'title'=>trans('admin.visa'),
 		    ],
-				[
-                 'name'=>'machine_id.name',
-                 'data'=>'machine_id.name',
-                 'title'=>trans('admin.machine_id'),
-		    ],
+			
 				[
                  'name'=>'decision_id.name',
                  'data'=>'decision_id.name',
                  'title'=>trans('admin.decision_id'),
 		    ],
             [
-	                'name' => 'created_at',
-	                'data' => 'created_at',
-	                'title' => trans('admin.created_at'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-	                    [
-	                'name' => 'updated_at',
-	                'data' => 'updated_at',
-	                'title' => trans('admin.updated_at'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-	                    [
 	                'name' => 'actions',
 	                'data' => 'actions',
 	                'title' => trans('admin.actions'),

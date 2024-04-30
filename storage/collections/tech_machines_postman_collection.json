@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "3a4e3045-2c37-4a99-b400-70e63461d792",
+        "_postman_id": "cb9a7278-e724-4c84-b9f9-f1c4357fe373",
         "name": "tech",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
@@ -27,10 +27,10 @@
     ],
     "item": [
         {
-            "name": "offsets",
+            "name": "machines",
             "item": [
                 {
-                    "name": "get all offsets",
+                    "name": "get all machines",
                     "protocolProfileBehavior": {
                         "disableBodyPruning": true
                     },
@@ -65,12 +65,12 @@
                             ]
                         },
                         "url": {
-                            "raw": "{{local}}/offsets",
+                            "raw": "{{local}}/machines",
                             "host": [
                                 "{{local}}"
                             ],
                             "path": [
-                                "offsets"
+                                "machines"
                             ]
                         },
                         "description": "test description"
@@ -78,7 +78,7 @@
                     "response": []
                 },
                 {
-                    "name": "show by id offsets",
+                    "name": "show by id machines",
                     "protocolProfileBehavior": {
                         "disableBodyPruning": true
                     },
@@ -113,12 +113,12 @@
                             ]
                         },
                         "url": {
-                            "raw": "{{local}}/offsets/{PUT_YOUR_ID}",
+                            "raw": "{{local}}/machines/{PUT_YOUR_ID}",
                             "host": [
                                 "{{local}}"
                             ],
                             "path": [
-                                "offsets",
+                                "machines",
                                 "{PUT_YOUR_ID}"
                             ]
                         },
@@ -127,7 +127,7 @@
                     "response": []
                 },
                 {
-                    "name": "Add Record offsets",
+                    "name": "Add Record machines",
                     "protocolProfileBehavior": {
                         "disableBodyPruning": true
                     },
@@ -160,40 +160,10 @@
                                     "value": "ar"
                                 },
                                 {
-                                    "key": "client_id",
-                                    "value": "App\\Models\\Client::pluck('first_name'",
-                                    "type": "text",
-                                    "description": "Dropdown data (App\\Models\\Client::pluck('first_name')"
-                                },
-                                {
                                     "key": "code",
                                     "value": "some string",
                                     "type": "text",
                                     "description": "normal input text"
-                                },
-                                {
-                                    "key": "grammage",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
-                                    "key": "format",
-                                    "value": "1",
-                                    "type": "text",
-                                    "description": "Dropdown data (1,0)"
-                                },
-                                {
-                                    "key": "poids",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
-                                    "key": "category_id",
-                                    "value": "App\\Models\\Category::pluck('name'",
-                                    "type": "text",
-                                    "description": "Dropdown data (App\\Models\\Category::pluck('name')"
                                 },
                                 {
                                     "key": "date",
@@ -202,26 +172,26 @@
                                     "description": "normal input text"
                                 },
                                 {
-                                    "key": "equipe",
+                                    "key": "fiche",
                                     "value": "some string",
                                     "type": "text",
                                     "description": "normal input text"
                                 },
                                 {
-                                    "key": "visa",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
+                                    "key": "photo",
+                                    "value": null,
+                                    "type": "file",
+                                    "description": "Upload File Input"
                                 }
                             ]
                         },
                         "url": {
-                            "raw": "{{local}}/offsets",
+                            "raw": "{{local}}/machines",
                             "host": [
                                 "{{local}}"
                             ],
                             "path": [
-                                "offsets"
+                                "machines"
                             ]
                         },
                         "description": "test description"
@@ -229,7 +199,7 @@
                     "response": []
                 },
                 {
-                    "name": "Update Record By ID offsets",
+                    "name": "Update Record By ID machines",
                     "protocolProfileBehavior": {
                         "disableBodyPruning": true
                     },
@@ -262,40 +232,10 @@
                                     "value": "ar"
                                 },
                                 {
-                                    "key": "client_id",
-                                    "value": "App\\Models\\Client::pluck('first_name'",
-                                    "type": "text",
-                                    "description": "Dropdown data (App\\Models\\Client::pluck('first_name')"
-                                },
-                                {
                                     "key": "code",
                                     "value": "some string",
                                     "type": "text",
                                     "description": "normal input text"
-                                },
-                                {
-                                    "key": "grammage",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
-                                    "key": "format",
-                                    "value": "1",
-                                    "type": "text",
-                                    "description": "Dropdown data (1,0)"
-                                },
-                                {
-                                    "key": "poids",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
-                                },
-                                {
-                                    "key": "category_id",
-                                    "value": "App\\Models\\Category::pluck('name'",
-                                    "type": "text",
-                                    "description": "Dropdown data (App\\Models\\Category::pluck('name')"
                                 },
                                 {
                                     "key": "date",
@@ -304,26 +244,26 @@
                                     "description": "normal input text"
                                 },
                                 {
-                                    "key": "equipe",
+                                    "key": "fiche",
                                     "value": "some string",
                                     "type": "text",
                                     "description": "normal input text"
                                 },
                                 {
-                                    "key": "visa",
-                                    "value": "some string",
-                                    "type": "text",
-                                    "description": "normal input text"
+                                    "key": "photo",
+                                    "value": null,
+                                    "type": "file",
+                                    "description": "Upload File Input"
                                 }
                             ]
                         },
                         "url": {
-                            "raw": "{{local}}/offsets/{PUT_YOUR_ID}",
+                            "raw": "{{local}}/machines/{PUT_YOUR_ID}",
                             "host": [
                                 "{{local}}"
                             ],
                             "path": [
-                                "offsets",
+                                "machines",
                                 "{PUT_YOUR_ID}"
                             ]
                         },
@@ -332,7 +272,7 @@
                     "response": []
                 },
                 {
-                    "name": "DELETE Record By ID offsets",
+                    "name": "DELETE Record By ID machines",
                     "protocolProfileBehavior": {
                         "disableBodyPruning": true
                     },
@@ -367,12 +307,12 @@
                             ]
                         },
                         "url": {
-                            "raw": "{{local}}/offsets/{PUT_YOUR_ID}",
+                            "raw": "{{local}}/machines/{PUT_YOUR_ID}",
                             "host": [
                                 "{{local}}"
                             ],
                             "path": [
-                                "offsets",
+                                "machines",
                                 "{PUT_YOUR_ID}"
                             ]
                         },
@@ -381,7 +321,7 @@
                     "response": []
                 },
                 {
-                    "name": "Multi Delete Record By IDs offsets",
+                    "name": "Multi Delete Record By IDs machines",
                     "protocolProfileBehavior": {
                         "disableBodyPruning": true
                     },
@@ -428,12 +368,12 @@
                             ]
                         },
                         "url": {
-                            "raw": "{{local}}/offsets/multi_delete",
+                            "raw": "{{local}}/machines/multi_delete",
                             "host": [
                                 "{{local}}"
                             ],
                             "path": [
-                                "offsets",
+                                "machines",
                                 "multi_delete"
                             ]
                         },

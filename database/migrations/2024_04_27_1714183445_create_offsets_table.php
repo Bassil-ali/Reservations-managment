@@ -20,7 +20,7 @@ class CreateOffsetsTable extends Migration
             $table->bigInteger('code');
             $table->string('cahier_number');
             $table->string('grammage');
-            $table->string('format');
+            $table->enum('format',['1','0']);
             $table->string('poids');
             $table->foreignId("category_id")->constrained("categories")->references("id")->onUpdate("cascade")->onDelete("cascade");
             $table->dateTime('date')->nullable();
@@ -28,8 +28,7 @@ class CreateOffsetsTable extends Migration
             $table->string('visa');
             $table->foreignId("machine_id")->constrained("machines")->references("id")->onUpdate("cascade")->onDelete("cascade");
             $table->foreignId("decision_id")->constrained("decesions")->references("id")->onUpdate("cascade")->onDelete("cascade");
-			$table->softDeletes();
-			$table->timestamps();
+			$table->timestamps();
         });
     }
 

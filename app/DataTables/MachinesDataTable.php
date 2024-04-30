@@ -90,7 +90,7 @@ class MachinesDataTable extends DataTable
 
 
             
-            ". filterElement('1,2,1,4,1,5,1,6,1,7', 'input') . "
+            ". filterElement('1,2,1,3,1,4,1,5,1,7', 'input') . "
 
             
 
@@ -166,24 +166,24 @@ class MachinesDataTable extends DataTable
                  'title'=>trans('admin.code'),
 		    ],
 				[
+                 'name'=>'name',
+                 'data'=>'name',
+                 'title'=>trans('admin.name'),
+		    ],
+				[
                  'name'=>'date',
                  'data'=>'date',
                  'title'=>trans('admin.date'),
 		    ],
 				[
-                 'name'=>'capacite production',
-                 'data'=>'capacite production',
-                 'title'=>trans('admin.capacite production'),
+                 'name'=>'capacite_production',
+                 'data'=>'capacite_production',
+                 'title'=>trans('admin.capacite_production'),
 		    ],
 				[
-                 'name'=>'fiche',
-                 'data'=>'fiche',
-                 'title'=>trans('admin.fiche'),
-		    ],
-				[
-                 'name'=>'date finproduction',
-                 'data'=>'date finproduction',
-                 'title'=>trans('admin.date finproduction'),
+                 'name'=>'date_finproduction',
+                 'data'=>'date_finproduction',
+                 'title'=>trans('admin.date_finproduction'),
 		    ],
 				[
                  'name'=>'photo',
@@ -191,24 +191,6 @@ class MachinesDataTable extends DataTable
                  'title'=>trans('admin.photo'),
 		    ],
             [
-	                'name' => 'created_at',
-	                'data' => 'created_at',
-	                'title' => trans('admin.created_at'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-	                    [
-	                'name' => 'updated_at',
-	                'data' => 'updated_at',
-	                'title' => trans('admin.updated_at'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-	                    [
 	                'name' => 'actions',
 	                'data' => 'actions',
 	                'title' => trans('admin.actions'),

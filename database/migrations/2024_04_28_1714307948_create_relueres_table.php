@@ -18,7 +18,7 @@ class CreateRelueresTable extends Migration
             $table->bigIncrements('id');
             $table->foreignId("user_id")->constrained("clients")->references("id")->onUpdate("cascade")->onDelete("cascade");
             $table->string('code');
-            $table->string('format');
+            $table->enum('format',['1','0']);
             $table->string('poids');
             $table->foreignId("category_id")->constrained("categories")->references("id")->onUpdate("cascade")->onDelete("cascade");
             $table->foreignId("decesion_id")->constrained("decesions")->references("id")->onUpdate("cascade")->onDelete("cascade");

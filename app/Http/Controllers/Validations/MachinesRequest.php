@@ -28,9 +28,9 @@ class MachinesRequest extends FormRequest {
              'code'=>'required',
              'name'=>'string',
              'date'=>'required',
-             'capacite production'=>'required|string',
-             'fiche'=>'required',
-             'date finproduction'=>'required',
+             'capacite_production'=>'required|string',
+             'fiche'=>'required|string',
+             'date_finproduction'=>'required',
              'photo'=>'required|image',
 		];
 	}
@@ -40,9 +40,9 @@ class MachinesRequest extends FormRequest {
              'code'=>'required',
              'name'=>'string',
              'date'=>'required',
-             'capacite production'=>'required|string',
-             'fiche'=>'required',
-             'date finproduction'=>'required',
+             'capacite_production'=>'required|string',
+             'fiche'=>'required|string',
+             'date_finproduction'=>'required',
              'photo'=>'required|image',
 		];
 	}
@@ -64,9 +64,9 @@ class MachinesRequest extends FormRequest {
              'code'=>trans('admin.code'),
              'name'=>trans('admin.name'),
              'date'=>trans('admin.date'),
-             'capacite production'=>trans('admin.capacite production'),
+             'capacite_production'=>trans('admin.capacite_production'),
              'fiche'=>trans('admin.fiche'),
-             'date finproduction'=>trans('admin.date finproduction'),
+             'date_finproduction'=>trans('admin.date_finproduction'),
              'photo'=>trans('admin.photo'),
 		];
 	}

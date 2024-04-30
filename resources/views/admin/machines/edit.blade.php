@@ -63,6 +63,12 @@
 
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
+        {!! Form::label('code',trans('admin.code'),['class'=>'control-label']) !!}
+        {!! Form::text('code', $machines->code ,['class'=>'form-control','placeholder'=>trans('admin.code')]) !!}
+    </div>
+</div>
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+    <div class="form-group">
         {!! Form::label('name',trans('admin.name'),['class'=>'control-label']) !!}
         {!! Form::text('name', $machines->name ,['class'=>'form-control','placeholder'=>trans('admin.name')]) !!}
     </div>
@@ -85,14 +91,20 @@
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
-        {!! Form::label('fiche',trans('admin.fiche'),['class'=>'control-label']) !!}
-        {!! Form::text('fiche', $machines->fiche ,['class'=>'form-control','placeholder'=>trans('admin.fiche')]) !!}
+        {!! Form::label('capacite_production',trans('admin.capacite_production'),['class'=>'control-label']) !!}
+        {!! Form::text('capacite_production', $machines->capacite_production ,['class'=>'form-control','placeholder'=>trans('admin.capacite_production')]) !!}
     </div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
-        {!! Form::label('date finproduction',trans('admin.date finproduction'),['class'=>'control-label']) !!}
-        {!! Form::text('date finproduction', $machines->date finproduction ,['class'=>'form-control','placeholder'=>trans('admin.date finproduction')]) !!}
+        {!! Form::label('fiche',trans('admin.fiche'),['class'=>'control-label']) !!}
+        {!! Form::textarea('fiche', $machines->fiche ,['class'=>'form-control ckeditor','placeholder'=>trans('admin.fiche')]) !!}
+    </div>
+</div>
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+    <div class="form-group">
+        {!! Form::label('date_finproduction',trans('admin.date_finproduction'),['class'=>'control-label']) !!}
+        {!! Form::text('date_finproduction', $machines->date_finproduction ,['class'=>'form-control','placeholder'=>trans('admin.date_finproduction')]) !!}
     </div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 photo">

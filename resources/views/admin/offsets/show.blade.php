@@ -75,10 +75,6 @@
 				{!! $offsets->grammage !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.format')}} :</b>
-				{!! $offsets->format !!}
-			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.poids')}} :</b>
 				{!! $offsets->poids !!}
 			</div>
@@ -99,6 +95,10 @@
 				@if(!empty($offsets->client_id()->first()))
 			{{ $offsets->client_id()->first()->first_name }}
 			@endif
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.format')}} :</b>
+				{{ trans("admin.".$offsets->format) }}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.category_id')}} :</b>
