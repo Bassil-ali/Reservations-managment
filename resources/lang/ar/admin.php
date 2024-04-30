@@ -1,7 +1,7 @@
 <?php
     return [
         "cahier number" => "رقم الدفتر",
-        "clients" => "العملاء",
+        "clients" => "المستخدمين",
         "first_name" => "الاسم",
         "second_name" => "اللقب",
         "grade_id" => "الصف",
