@@ -2,8 +2,8 @@
     return [
         "cahier number" => "رقم الدفتر",
         "clients" => "العملاء",
-        "first_name" => "الاسم الأول",
-        "second_name" => "الاسم الثاني",
+        "first_name" => "الاسم",
+        "second_name" => "اللقب",
         "grade_id" => "الصف",
         "type_id" => "النوع",
         "password" => "كلمة المرور",
