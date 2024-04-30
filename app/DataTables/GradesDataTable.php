@@ -89,6 +89,8 @@ class GradesDataTable extends DataTable
 
 
             
+            ". filterElement('1,2,1,3', 'input') . "
+
             
 
 	            }",
@@ -157,25 +159,17 @@ class GradesDataTable extends DataTable
                 'width'          => '10px',
                 'aaSorting'      => 'none'
             ],
+				[
+                 'name'=>'grade_code',
+                 'data'=>'grade_code',
+                 'title'=>trans('admin.grade_code'),
+		    ],
+				[
+                 'name'=>'grade_name',
+                 'data'=>'grade_name',
+                 'title'=>trans('admin.grade_name'),
+		    ],
             [
-	                'name' => 'created_at',
-	                'data' => 'created_at',
-	                'title' => trans('admin.created_at'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-	                    [
-	                'name' => 'updated_at',
-	                'data' => 'updated_at',
-	                'title' => trans('admin.updated_at'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-	                    [
 	                'name' => 'actions',
 	                'data' => 'actions',
 	                'title' => trans('admin.actions'),
