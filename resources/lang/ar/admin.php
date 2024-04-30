@@ -3,7 +3,7 @@
 		"Dilemmas"	=>		"المعضلات",
 		"offsets"	=>		"تعويضات",
 		"client_id"	=>		"مستخدم",
-		"code"	=>		"كود",
+		"code"	=>		"الرمز",
 		"cahier_number"	=>		"رقم الدفتر",
 		"grammage"	=>		"الوزن",
 		"format"	=>		"تنسيق",
