@@ -299,7 +299,7 @@ with font-awesome or any other icon font library -->
 <!--machines_end_route-->
 @endif
 <!--offsets_start_route-->
-@if(auth()->guard('client')->check())
+
 <li class="nav-item {{active_link('offsets','menu-open')}} ">
   <a href="#" class="nav-link {{active_link('offsets','active')}}">
     <i class="nav-icon fa fa-window-close"></i>
@@ -323,7 +323,7 @@ with font-awesome or any other icon font library -->
     </li>
   </ul>
 </li>
-@endif
+
 <!--offsets_end_route-->
 
 <!--relueres_start_route-->
