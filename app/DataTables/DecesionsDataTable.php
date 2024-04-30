@@ -89,6 +89,8 @@ class DecesionsDataTable extends DataTable
 
 
             
+            ". filterElement('1,2,1,3', 'input') . "
+
             
 
 	            }",
@@ -157,19 +159,20 @@ class DecesionsDataTable extends DataTable
                 'width'          => '10px',
                 'aaSorting'      => 'none'
             ],
+				[
+                 'name'=>'name',
+                 'data'=>'name',
+                 'title'=>trans('admin.name'),
+		    ],
+				[
+                 'name'=>'Name_Arabic',
+                 'data'=>'Name_Arabic',
+                 'title'=>trans('admin.Name_Arabic'),
+		    ],
             [
 	                'name' => 'created_at',
 	                'data' => 'created_at',
 	                'title' => trans('admin.created_at'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-	                    [
-	                'name' => 'updated_at',
-	                'data' => 'updated_at',
-	                'title' => trans('admin.updated_at'),
 	                'exportable' => false,
 	                'printable'  => false,
 	                'searchable' => false,

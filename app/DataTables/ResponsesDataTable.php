@@ -93,7 +93,7 @@ class ResponsesDataTable extends DataTable
 
 
             
-            ". filterElement('1,2', 'input') . "
+            ". filterElement('1,2,1,3', 'input') . "
 
             
 
@@ -168,19 +168,15 @@ class ResponsesDataTable extends DataTable
                  'data'=>'code',
                  'title'=>trans('admin.code'),
 		    ],
+				[
+                 'name'=>'response',
+                 'data'=>'response',
+                 'title'=>trans('admin.response'),
+		    ],
             [
 	                'name' => 'created_at',
 	                'data' => 'created_at',
 	                'title' => trans('admin.created_at'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-	                    [
-	                'name' => 'updated_at',
-	                'data' => 'updated_at',
-	                'title' => trans('admin.updated_at'),
 	                'exportable' => false,
 	                'printable'  => false,
 	                'searchable' => false,

@@ -67,8 +67,8 @@
 				{!! $decesions->name !!}
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<b>{{trans('admin.Name Arabic')}} :</b>
-				{!! $decesions->Name Arabic !!}
+				<b>{{trans('admin.Name_Arabic')}} :</b>
+				{!! $decesions->Name_Arabic !!}
 			</div>
 			<!-- /.row -->
 		</div>

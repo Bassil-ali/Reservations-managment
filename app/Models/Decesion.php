@@ -12,7 +12,7 @@ protected $fillable = [
 		'id',
 		'admin_id',
         'name',
-        'Name Arabic',
+        'Name_Arabic',
 		'created_at',
 		'updated_at',
 	];

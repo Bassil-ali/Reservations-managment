@@ -17,7 +17,7 @@ class CreateDecesionsTable extends Migration
         Schema::create('decesions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('Name Arabic')->nullable();
+            $table->string('Name_Arabic')->nullable();
 			$table->timestamps();
         });
     }

@@ -38,8 +38,8 @@
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
-        {!! Form::label('Name Arabic',trans('admin.Name Arabic'),['class'=>' control-label']) !!}
-            {!! Form::text('Name Arabic',old('Name Arabic'),['class'=>'form-control','placeholder'=>trans('admin.Name Arabic')]) !!}
+        {!! Form::label('Name_Arabic',trans('admin.Name_Arabic'),['class'=>' control-label']) !!}
+            {!! Form::text('Name_Arabic',old('Name_Arabic'),['class'=>'form-control','placeholder'=>trans('admin.Name_Arabic')]) !!}
     </div>
 </div>
 

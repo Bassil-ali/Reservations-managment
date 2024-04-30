@@ -26,14 +26,14 @@ class DecesionsRequest extends FormRequest {
 	protected function onCreate() {
 		return [
              'name'=>'required|string',
-             'Name Arabic'=>'string',
+             'Name_Arabic'=>'string',
 		];
 	}
 
 	protected function onUpdate() {
 		return [
              'name'=>'required|string',
-             'Name Arabic'=>'string',
+             'Name_Arabic'=>'string',
 		];
 	}
 
@@ -52,7 +52,7 @@ class DecesionsRequest extends FormRequest {
 	public function attributes() {
 		return [
              'name'=>trans('admin.name'),
-             'Name Arabic'=>trans('admin.Name Arabic'),
+             'Name_Arabic'=>trans('admin.Name_Arabic'),
 		];
 	}
 

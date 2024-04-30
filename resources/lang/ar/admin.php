@@ -173,7 +173,6 @@
 		"types"	=>		"الأنواع",
 		"directions"	=>		"المديريات",
 		"Name Arabic"	=>		"الاسم بالعربية",
-		"decesions"	=>		"القرارات",
 		"input1 => active"	=>		"نشط",
 		"type"	=>		"النوع",
 		"grade"	=>		"الوظيفة",
@@ -183,7 +182,6 @@
 		"date_finproduction"	=>		"التاريخ المتوقع لنهاية صلاحية الآلة",
 		"fiche"	=>		"تفصيل حول الآلة",
 		"capacite_production"	=>		"القدرة الانتاجية",
-		"name"	=>		"الاسم",
 		"machines"	=>		"الألات",
 		"decesion_id"	=>		"القرار",
 		"user_id"	=>		"User",
@@ -191,5 +189,11 @@
 		"grade_name"	=>		"اسم الوظيفة",
 		"grade_code"	=>		"رمز الوظيفة",
 		"grades"	=>		"الوظائف",
+		
+		"decesions"	=>		"القرارات",
+		"response"	=>		"الرد",
+		"code"	=>		"الرمز",
+		"responses"	=>		"الردود",
+
 
 ];
