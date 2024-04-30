@@ -346,7 +346,7 @@
        
       </div>
       <div class="info">
-         <a href="" class="d-block">{{  it()->url(admin()->user()->name)}}
+         <a href="" class="d-block">{{  admin()->user()->name}}
         </a>
       </div>
     </div>
