@@ -50,6 +50,8 @@
                         {{ session('success') }}
                     </div>
                     @endif
+
+                    
                 </div>
                 <div class="card-body">
                     <p class="login-box-msg">{{ trans('admin.login_page') }}</p>
