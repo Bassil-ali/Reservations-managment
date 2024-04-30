@@ -9,7 +9,7 @@ use App\Models\Client;
 class ClientAuthenticated extends Controller {
 
 	public function login_page() {
-		return view('Client.login', ['title' => trans('Client.login_page')]);
+		return view('admin.login-client', ['title' => trans('Client.login_page')]);
 	}
 
 	public function lock_screen() {
