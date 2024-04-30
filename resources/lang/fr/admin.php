@@ -169,7 +169,7 @@
 		"decision_id"	=>		"Décision",
 		"machine_id"	=>		"Machine",
 		"visa"	=>		"Visa",
-		"equipe"	=>		l'équipe",
+		"equipe"	=> "équipe",
 		"date"	=>		"Date",
 		"category_id"	=>		"Catégorie",
 		"poids"	=>		"Poids",
