@@ -1,7 +1,7 @@
 <?php
 		return [
-		"Dilemmas"	=>		"المعضلات",
-		"offsets"	=>		"تعويضات",
+		"Dilemmas"	=>		"غير صالحة",
+		"offsets"	=>		"اوفسات",
 		"client_id"	=>		"مستخدم",
 		"code"	=>		"الرمز",
 		"cahier_number"	=>		"رقم الدفتر",
