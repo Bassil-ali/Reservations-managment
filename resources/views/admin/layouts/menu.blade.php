@@ -327,7 +327,7 @@ with font-awesome or any other icon font library -->
 <!--offsets_end_route-->
 
 <!--relueres_start_route-->
-@if(auth()->guard('client')->check())
+
 <li class="nav-item {{active_link('relueres','menu-open')}} ">
   <a href="#" class="nav-link {{active_link('relueres','active')}}">
     <i class="nav-icon fa fa-balance-scale"></i>
@@ -351,5 +351,5 @@ with font-awesome or any other icon font library -->
     </li>
   </ul>
 </li>
-@endif
+
 <!--relueres_end_route-->
