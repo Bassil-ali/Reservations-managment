@@ -19,6 +19,7 @@ class BookMachinesDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('actions', 'admin.bookmachines.buttons.actions')
+            ->addColumn('answer', '{{ trans("admin.".$answer) }}')
    		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger">
                   <input type="checkbox" class="selected_data" name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
                   <label for="selectdata{{ $id }}"></label>
@@ -89,10 +90,17 @@ class BookMachinesDataTable extends DataTable
 
 
             
-                        //client_idclient_id,machine_id2
+            ". filterElement('1,4', 'input') . "
+
+                        //client_idclient_id,machine_id,question_1,answer2
             ". filterElement('2', 'select', \App\Models\Client::pluck("first_name","first_name")) . "
-            //machine_idclient_id,machine_id3
+            //machine_idclient_id,machine_id,question_1,answer3
             ". filterElement('3', 'select', \App\Models\Machine::pluck("name","name")) . "
+            //answerclient_id,machine_id,question_1,answer5
+            ". filterElement('5', 'select', [
+            'Yes'=>trans('admin.Yes'),
+            'No'=>trans('admin.No'),
+            ]) . "
 
 
 	            }",
@@ -171,16 +179,17 @@ class BookMachinesDataTable extends DataTable
                  'data'=>'machine_id.name',
                  'title'=>trans('admin.machine_id'),
 		    ],
+				[
+                 'name'=>'question_1',
+                 'data'=>'question_1',
+                 'title'=>trans('admin.question_1'),
+		    ],
+				[
+                 'name'=>'book_machines.answer',
+                 'data'=>'answer',
+                 'title'=>trans('admin.answer'),
+		    ],
             [
-	                'name' => 'created_at',
-	                'data' => 'created_at',
-	                'title' => trans('admin.created_at'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-	            ],
-	                    [
 	                'name' => 'actions',
 	                'data' => 'actions',
 	                'title' => trans('admin.actions'),

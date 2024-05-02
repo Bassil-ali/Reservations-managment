@@ -151,7 +151,6 @@
       <a href="{{ aurl("machines") }}" class="small-box-footer">{{ trans("admin.machines") }} <i class="fas fa-arrow-circle-right"></i></a>
     </div>
 </div>
-@endif
 <!--machines_end-->
 <!--offsets_start-->
 <div class="col-lg-3 col-6">

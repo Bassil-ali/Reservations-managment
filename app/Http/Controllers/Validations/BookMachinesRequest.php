@@ -26,14 +26,18 @@ class BookMachinesRequest extends FormRequest {
 	protected function onCreate() {
 		return [
              'client_id'=>'required',
-             'machine_id'=>'required|array',
+             'machine_id'=>'required',
+             'question_1'=>'required|string',
+             'answer'=>'in:Yes,No',
 		];
 	}
 
 	protected function onUpdate() {
 		return [
              'client_id'=>'required',
-             'machine_id'=>'required|array',
+             'machine_id'=>'required',
+             'question_1'=>'required|string',
+             'answer'=>'in:Yes,No',
 		];
 	}
 
@@ -53,6 +57,8 @@ class BookMachinesRequest extends FormRequest {
 		return [
              'client_id'=>trans('admin.client_id'),
              'machine_id'=>trans('admin.machine_id'),
+             'question_1'=>trans('admin.question_1'),
+             'answer'=>trans('admin.answer'),
 		];
 	}
 

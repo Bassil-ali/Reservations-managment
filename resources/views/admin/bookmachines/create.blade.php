@@ -30,16 +30,28 @@
 {!! Form::open(['url'=>aurl('/bookmachines'),'id'=>'bookmachines','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
 <div class="row">
 
-<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 	<div class="form-group">
 		{!! Form::label('client_id',trans('admin.client_id')) !!}
-		{!! Form::select('client_id',App\Models\Client::pluck('first_name','id'),old('client_id'),['class'=>'form-control select2','style'=>"width:100%;",'placeholder'=>trans('admin.choose')]) !!}
+		{!! Form::select('client_id',App\Models\Client::pluck('first_name','id'),old('client_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 	</div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 	<div class="form-group">
 		{!! Form::label('machine_id',trans('admin.machine_id')) !!}
-		{!! Form::select('machine_id[]',App\Models\Machine::pluck('name','id'),old('machine_id'),['class'=>'form-control select2','multiple' => 'multiple','placeholder'=>trans('admin.choose')]) !!}
+		{!! Form::select('machine_id',App\Models\Machine::pluck('name','id'),old('machine_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+	</div>
+</div>
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <div class="form-group">
+        {!! Form::label('question_1',trans('admin.question_1'),['class'=>' control-label']) !!}
+            {!! Form::text('question_1',old('question_1'),['class'=>'form-control','placeholder'=>trans('admin.question_1')]) !!}
+    </div>
+</div>
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+	<div class="form-group">
+		{!! Form::label('answer',trans('admin.answer')) !!}
+		{!! Form::select('answer',['Yes'=>trans('admin.Yes'),'No'=>trans('admin.No'),],old('answer'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 	</div>
 </div>
 
@@ -51,5 +63,4 @@
 <button type="submit" name="add_back" class="btn btn-success btn-flat"><i class="fa fa-plus"></i> {{ trans('admin.add_back') }}</button>
 {!! Form::close() !!}	</div>
 </div>
-
 @endsection

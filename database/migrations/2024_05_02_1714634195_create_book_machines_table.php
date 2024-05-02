@@ -18,6 +18,8 @@ class CreateBookMachinesTable extends Migration
             $table->bigIncrements('id');
             $table->foreignId("client_id")->constrained("clients")->references("id")->onUpdate("cascade")->onDelete("cascade");
             $table->foreignId("machine_id")->constrained("machines")->references("id")->onUpdate("cascade")->onDelete("cascade");
+            $table->string('question_1');
+            $table->enum('answer',['Yes','No'])->nullable();
 			$table->timestamps();
         });
     }

@@ -26,7 +26,7 @@ class BookMachinesRequest extends FormRequest {
 	protected function onCreate() {
 		return [
              'client_id'=>'required',
-             'machine_id'=>'required|array',
+             'machine_id'=>'required',
 		];
 	}
 
@@ -34,7 +34,7 @@ class BookMachinesRequest extends FormRequest {
 	protected function onUpdate() {
 		return [
              'client_id'=>'required',
-             'machine_id'=>'required|array',
+             'machine_id'=>'required',
 		];
 	}
 

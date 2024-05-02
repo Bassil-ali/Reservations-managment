@@ -15,6 +15,9 @@ protected $fillable = [
 
         'machine_id',
 
+        'question_1',
+        'answer',
+
 		'created_at',
 		'updated_at',
 	];

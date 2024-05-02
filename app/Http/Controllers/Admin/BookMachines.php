@@ -60,20 +60,8 @@ class BookMachines extends Controller
              */
             public function store(BookMachinesRequest $request)
             {
-
                 $data = $request->except("_token", "_method");
-                        foreach($data['machine_id'] as $dataMachine){
-                         
-                          if($dataMachine != null){
-                            
-                          $dataMachine = BookMachine::create([
-                            'client_id' => (int)$data['client_id'],
-                            'machine_id' => (int)$dataMachine
-                          ]); 
-                          }
-                        }
-                        
-            			  		
+            			  		$bookmachines = BookMachine::create($data); 
                 $redirect = isset($request["add_back"])?"/create":"";
                 return redirectWithSuccess(aurl('bookmachines'.$redirect), trans('admin.added')); }
 

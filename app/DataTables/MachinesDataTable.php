@@ -90,7 +90,7 @@ class MachinesDataTable extends DataTable
 
 
             
-            ". filterElement('1,2,1,3,1,4,1,5,1,7', 'input') . "
+            ". filterElement('1,2,1,3,1,4,1,5,1,6,1,7', 'input') . "
 
             
 
@@ -179,6 +179,11 @@ class MachinesDataTable extends DataTable
                  'name'=>'capacite_production',
                  'data'=>'capacite_production',
                  'title'=>trans('admin.capacite_production'),
+		    ],
+				[
+                 'name'=>'fiche',
+                 'data'=>'fiche',
+                 'title'=>trans('admin.fiche'),
 		    ],
 				[
                  'name'=>'date_finproduction',
