@@ -72,6 +72,7 @@ class BookMachines extends Controller
                           ]); 
                           }
                         }
+                        
             			  		
                 $redirect = isset($request["add_back"])?"/create":"";
                 return redirectWithSuccess(aurl('bookmachines'.$redirect), trans('admin.added')); }
