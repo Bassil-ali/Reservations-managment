@@ -178,46 +178,57 @@ class OffsetsDataTable extends DataTable
                 'width'          => '10px',
                 'aaSorting'      => 'none'
             ],
+            [
+              'name'=>'cahier_number',
+              'data'=>'cahier_number',
+              'title'=>trans('admin.cahier_number'),
+     ],
+     [
+      'name'=>'grammage',
+      'data'=>'grammage',
+      'title'=>trans('admin.grammage'),
+],
+[
+  'name'=>'offsets.format',
+  'data'=>'format',
+  'title'=>trans('admin.format'),
+],
+[
+  'name'=>'poids',
+  'data'=>'poids',
+  'title'=>trans('admin.poids'),
+],
+[
+  'name'=>'category_id.name',
+  'data'=>'category_id.name',
+  'title'=>trans('admin.category_id'),
+],
+[
+  'name'=>'decision_id.name',
+  'data'=>'decision_id.name',
+  'title'=>trans('admin.decision_id'),
+],
+[
+  'name'=>'machine_id.name',
+  'data'=>'machine_id.name',
+  'title'=>trans('admin.machine_id'),
+],
 				[
                  'name'=>'client_id.first_name',
                  'data'=>'client_id.first_name',
                  'title'=>trans('admin.client_id'),
 		    ],
-        [
-          'name'=>'machine_id.name',
-          'data'=>'machine_id.name',
-          'title'=>trans('admin.machine_id'),
- ],
+       
 				[
                  'name'=>'code',
                  'data'=>'code',
                  'title'=>trans('admin.code'),
 		    ],
-				[
-                 'name'=>'cahier_number',
-                 'data'=>'cahier_number',
-                 'title'=>trans('admin.cahier_number'),
-		    ],
-				[
-                 'name'=>'grammage',
-                 'data'=>'grammage',
-                 'title'=>trans('admin.grammage'),
-		    ],
-				[
-                 'name'=>'offsets.format',
-                 'data'=>'format',
-                 'title'=>trans('admin.format'),
-		    ],
-				[
-                 'name'=>'poids',
-                 'data'=>'poids',
-                 'title'=>trans('admin.poids'),
-		    ],
-				[
-                 'name'=>'category_id.name',
-                 'data'=>'category_id.name',
-                 'title'=>trans('admin.category_id'),
-		    ],
+				
+				
+				
+				
+				
 				[
                  'name'=>'date',
                  'data'=>'date',
@@ -234,11 +245,7 @@ class OffsetsDataTable extends DataTable
                  'title'=>trans('admin.visa'),
 		    ],
 			
-				[
-                 'name'=>'decision_id.name',
-                 'data'=>'decision_id.name',
-                 'title'=>trans('admin.decision_id'),
-		    ],
+				
             [
 	                'name' => 'actions',
 	                'data' => 'actions',

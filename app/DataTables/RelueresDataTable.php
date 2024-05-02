@@ -182,41 +182,52 @@ class RelueresDataTable extends DataTable
                 'width'          => '10px',
                 'aaSorting'      => 'none'
             ],
-				[
-                 'name'=>'user_id.first_name',
-                 'data'=>'user_id.first_name',
-                 'title'=>trans('admin.user_id'),
-		    ],
+            [
+              'name'=>'relueres.format',
+              'data'=>'format',
+              'title'=>trans('admin.format'),
+     ],
+     [
+      'name'=>'poids',
+      'data'=>'poids',
+      'title'=>trans('admin.poids'),
+],
+				
+        [
+          'name'=>'poids',
+          'data'=>'poids',
+          'title'=>trans('admin.poids'),
+ ],
+        [
+          'name'=>'category_id.name',
+          'data'=>'category_id.name',
+          'title'=>trans('admin.category_id'),
+ ],
+ [
+  'name'=>'decesion_id.name',
+  'data'=>'decesion_id.name',
+  'title'=>trans('admin.decesion_id'),
+],
         [
           'name'=>'machine_id.name',
           'data'=>'machine_id.name',
           'title'=>trans('admin.machine_id'),
  ],
+ [
+  'name'=>'user_id.first_name',
+  'data'=>'user_id.first_name',
+  'title'=>trans('admin.user_id'),
+],
+
 				[
                  'name'=>'code',
                  'data'=>'code',
                  'title'=>trans('admin.code'),
 		    ],
-				[
-                 'name'=>'relueres.format',
-                 'data'=>'format',
-                 'title'=>trans('admin.format'),
-		    ],
-				[
-                 'name'=>'poids',
-                 'data'=>'poids',
-                 'title'=>trans('admin.poids'),
-		    ],
-				[
-                 'name'=>'category_id.name',
-                 'data'=>'category_id.name',
-                 'title'=>trans('admin.category_id'),
-		    ],
-				[
-                 'name'=>'decesion_id.name',
-                 'data'=>'decesion_id.name',
-                 'title'=>trans('admin.decesion_id'),
-		    ],
+				
+				
+			
+			
 				
 				[
                  'name'=>'date',
