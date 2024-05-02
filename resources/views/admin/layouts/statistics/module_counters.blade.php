@@ -183,3 +183,18 @@
     </div>
 </div>
 <!--relueres_end-->
+<!--bookmachines_start-->
+<div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-primary">
+      <div class="inner">
+        <h3>{{ mK(App\Models\BookMachine::count()) }}</h3>
+        <p>{{ trans("admin.bookmachines") }}</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-icons"></i>
+      </div>
+      <a href="{{ aurl("bookmachines") }}" class="small-box-footer">{{ trans("admin.bookmachines") }} <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+<!--bookmachines_end-->

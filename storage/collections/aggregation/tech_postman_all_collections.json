@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "b60f614f-1252-413f-9b9e-1dfa78d2a24d",
+        "_postman_id": "2eef9efa-04a0-4812-8714-f58a3e09f522",
         "name": "tech",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
@@ -4187,6 +4187,229 @@
                                 "register"
                             ]
                         }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "bookmachines",
+            "item": [
+                {
+                    "name": "get all bookmachines",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "lang",
+                                    "description": "For Return Language Message default Arabic",
+                                    "type": "text",
+                                    "value": "ar"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{local}}/bookmachines",
+                            "host": [
+                                "{{local}}"
+                            ],
+                            "path": [
+                                "bookmachines"
+                            ]
+                        },
+                        "description": "test description"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add Record bookmachines",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "lang",
+                                    "description": "For Return Language Message default Arabic",
+                                    "type": "text",
+                                    "value": "ar"
+                                },
+                                {
+                                    "key": "client_id",
+                                    "value": "App\\Models\\Client::pluck('first_name'",
+                                    "type": "text",
+                                    "description": "Dropdown data (App\\Models\\Client::pluck('first_name')"
+                                },
+                                {
+                                    "key": "machine_id",
+                                    "value": "App\\Models\\Machine::pluck('name'",
+                                    "type": "text",
+                                    "description": "Dropdown data (App\\Models\\Machine::pluck('name')"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{local}}/bookmachines",
+                            "host": [
+                                "{{local}}"
+                            ],
+                            "path": [
+                                "bookmachines"
+                            ]
+                        },
+                        "description": "test description"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE Record By ID bookmachines",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "lang",
+                                    "description": "For Return Language Message default Arabic",
+                                    "type": "text",
+                                    "value": "ar"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{local}}/bookmachines/{PUT_YOUR_ID}",
+                            "host": [
+                                "{{local}}"
+                            ],
+                            "path": [
+                                "bookmachines",
+                                "{PUT_YOUR_ID}"
+                            ]
+                        },
+                        "description": "test description"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Multi Delete Record By IDs bookmachines",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "lang",
+                                    "description": "For Return Language Message default Arabic",
+                                    "type": "text",
+                                    "value": "ar"
+                                },
+                                {
+                                    "key": "selected_data[]",
+                                    "value": "1",
+                                    "type": "text",
+                                    "description": "Record ID Integer"
+                                },
+                                {
+                                    "key": "selected_data[]",
+                                    "value": "2",
+                                    "type": "text",
+                                    "description": "Record ID Integer"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{local}}/bookmachines/multi_delete",
+                            "host": [
+                                "{{local}}"
+                            ],
+                            "path": [
+                                "bookmachines",
+                                "multi_delete"
+                            ]
+                        },
+                        "description": "test description"
                     },
                     "response": []
                 }

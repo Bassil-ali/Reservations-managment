@@ -67,6 +67,8 @@ Route::group(['prefix'=>app('admin'),'middleware'=>'Lang'],function(){
 		Route::post('offsets/multi_delete','Admin\Offsets@multi_delete'); 
 		Route::resource('relueres','Admin\Relueres'); 
 		Route::post('relueres/multi_delete','Admin\Relueres@multi_delete'); 
+		Route::resource('bookmachines','Admin\BookMachines'); 
+		Route::post('bookmachines/multi_delete','Admin\BookMachines@multi_delete'); 
 		////////AdminRoutes/*End*///////////////
 	});
 

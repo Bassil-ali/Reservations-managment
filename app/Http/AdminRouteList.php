@@ -6,6 +6,7 @@
 * [it v 1.6.40]
 */
 return [
+	"bookmachines"=>["create","read","update","delete"],
 	"responses"=>["create","read","update","delete"],
 	"decesions"=>["create","read","update","delete"],
 	"grades"=>["create","read","update","delete"],
