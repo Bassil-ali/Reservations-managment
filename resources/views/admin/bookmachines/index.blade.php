@@ -44,6 +44,7 @@
 
 @push('js')
 {!! $dataTable->scripts() !!}
+
 @endpush
-		@endsection
+@endsection
 		

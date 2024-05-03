@@ -8,8 +8,11 @@
 		<a href="{{ aurl('/bookmachines/'.$id.'/edit')}}" class="dropdown-item" ><i class="fas fa-edit"></i> {{trans('admin.edit')}}</a>
 		<a href="{{ aurl('/bookmachines/'.$id)}}" class="dropdown-item" ><i class="fa fa-eye"></i> {{trans('admin.show')}}</a>
 		<div class="dropdown-divider"></div>
+		@if (!auth()->guard('client')->check())
 		<a data-toggle="modal" data-target="#delete_record{{$id}}" href="#" class="dropdown-item">
-		<i class="fas fa-trash"></i> {{trans('admin.delete')}}</a>
+			<i class="fas fa-trash"></i> {{trans('admin.delete')}}</a>
+		@endif
+		
 	</div>
 </div>
 <div class="modal fade" id="delete_record{{$id}}">

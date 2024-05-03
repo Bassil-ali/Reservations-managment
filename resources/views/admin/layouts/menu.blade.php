@@ -373,7 +373,7 @@ with font-awesome or any other icon font library -->
 <!--relueres_end_route-->
 
 <!--bookmachines_start_route-->
-@if(admin()->user()->role("bookmachines_show"))
+
 <li class="nav-item {{active_link('bookmachines','menu-open')}} ">
   <a href="#" class="nav-link {{active_link('bookmachines','active')}}">
     <i class="nav-icon fa fa-icons"></i>
@@ -389,13 +389,15 @@ with font-awesome or any other icon font library -->
         <p>{{trans('admin.bookmachines')}} </p>
       </a>
     </li>
+    @if(!auth()->guard('client')->check())
     <li class="nav-item">
       <a href="{{ aurl('bookmachines/create') }}" class="nav-link">
         <i class="fas fa-plus nav-icon"></i>
         <p>{{trans('admin.create')}} </p>
       </a>
     </li>
+    @endif
   </ul>
 </li>
-@endif
+
 <!--bookmachines_end_route-->

@@ -20,6 +20,7 @@ class CreateBookMachinesTable extends Migration
             $table->foreignId("machine_id")->constrained("machines")->references("id")->onUpdate("cascade")->onDelete("cascade");
             $table->string('question_1');
             $table->enum('answer',['Yes','No'])->nullable();
+            $table->string('Document_number');
 			$table->timestamps();
         });
     }

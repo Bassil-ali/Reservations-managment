@@ -61,30 +61,41 @@
 {!! Form::open(['url'=>aurl('/bookmachines/'.$bookmachines->id),'method'=>'put','id'=>'bookmachines','files'=>true,'class'=>'form-horizontal form-row-seperated']) !!}
 <div class="row">
 
-<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 		<div class="form-group">
-				{!! Form::label('client_id',trans('admin.client_id'),['class'=>'control-label']) !!}
-{!! Form::select('client_id',App\Models\Client::pluck('first_name','id'), $bookmachines->client_id ,['class'=>'form-control select2','placeholder'=>trans('admin.client_id')]) !!}
+			{!! Form::label('Document_number', trans('admin.Document_number'), ['class' => 'control-label']) !!}
+			{!! Form::text('Document_number', $bookmachines->Document_number, ['class' => 'form-control', 'placeholder' => trans('admin.Document_number'),  auth()->guard('client')->check() ? 'readonly' : '']) !!}
 		</div>
-</div>
-<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+	</div>
+	
+	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 		<div class="form-group">
-				{!! Form::label('machine_id',trans('admin.machine_id'),['class'=>'control-label']) !!}
-{!! Form::select('machine_id',App\Models\Machine::pluck('name','id'), $bookmachines->machine_id ,['class'=>'form-control select2','placeholder'=>trans('admin.machine_id')]) !!}
+			{!! Form::label('client_id', trans('admin.client_id'), ['class' => 'control-label']) !!}
+			{!! Form::select('client_id', App\Models\Client::pluck('first_name', 'id'), $bookmachines->client_id, ['class' => 'form-control select2', 'placeholder' => trans('admin.client_id'),  auth()->guard('client')->check() ? 'disabled' : '']) !!}
 		</div>
-</div>
-<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-    <div class="form-group">
-        {!! Form::label('question_1',trans('admin.question_1'),['class'=>'control-label']) !!}
-        {!! Form::text('question_1', $bookmachines->question_1 ,['class'=>'form-control','placeholder'=>trans('admin.question_1')]) !!}
-    </div>
-</div>
+	</div>
+	
+	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+		<div class="form-group">
+			{!! Form::label('machine_id', trans('admin.machine_id'), ['class' => 'control-label']) !!}
+			{!! Form::select('machine_id', App\Models\Machine::pluck('name', 'id'), $bookmachines->machine_id, ['class' => 'form-control select2', 'placeholder' => trans('admin.machine_id'),  auth()->guard('client')->check() ? 'disabled' : '']) !!}
+		</div>
+	</div>
+	
+	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+		<div class="form-group">
+			{!! Form::label('question_1', trans('admin.question_1'), ['class' => 'control-label']) !!}
+			{!! Form::text('question_1', $bookmachines->question_1, ['class' => 'form-control', 'placeholder' => trans('admin.question_1'),  auth()->guard('client')->check() ? 'readonly' : '']) !!}
+		</div>
+	</div>
+	
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 		<div class="form-group">
 				{!! Form::label('answer',trans('admin.answer'),['class'=>'control-label']) !!}
 {!! Form::select('answer',['Yes'=>trans('admin.Yes'),'No'=>trans('admin.No'),], $bookmachines->answer ,['class'=>'form-control select2','placeholder'=>trans('admin.answer')]) !!}
 		</div>
 </div>
+
 
 </div>
 		<!-- /.row -->

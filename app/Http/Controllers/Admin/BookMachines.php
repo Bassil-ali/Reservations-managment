@@ -37,6 +37,7 @@ class BookMachines extends Controller
              */
             public function index(BookMachinesDataTable $bookmachines)
             {
+             
                return $bookmachines->render('admin.bookmachines.index',['title'=>trans('admin.bookmachines')]);
             }
 
@@ -90,6 +91,7 @@ class BookMachines extends Controller
              */
             public function edit($id)
             {
+              
         		$bookmachines =  BookMachine::find($id);
         		return is_null($bookmachines) || empty($bookmachines)?
         		backWithError(trans("admin.undefinedRecord"),aurl("bookmachines")) :

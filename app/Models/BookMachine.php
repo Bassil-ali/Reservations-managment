@@ -18,6 +18,7 @@ protected $fillable = [
         'question_1',
         'answer',
 
+        'Document_number',
 		'created_at',
 		'updated_at',
 	];
