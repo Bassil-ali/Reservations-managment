@@ -28,8 +28,9 @@ class BookMachinesRequest extends FormRequest {
              'client_id'=>'required',
              'machine_id'=>'required',
              'question_1'=>'required|string',
-             'answer'=>'in:Yes,No',
+             'answer'=>'in:Yes,No,empty',
              'Document_number'=>'required',
+             'isAnswer'=>'sometimes|integer',
 		];
 	}
 
@@ -40,6 +41,7 @@ class BookMachinesRequest extends FormRequest {
              'question_1'=>'required|string',
              'answer'=>'in:Yes,No',
              'Document_number'=>'required',
+             'isAnswer'=>'sometimes|integer',
 		];
 	}
 
@@ -62,6 +64,7 @@ class BookMachinesRequest extends FormRequest {
              'question_1'=>trans('admin.question_1'),
              'answer'=>trans('admin.answer'),
              'Document_number'=>trans('admin.Document_number'),
+             'isAnswer'=>trans('admin.isAnswer'),
 		];
 	}
 

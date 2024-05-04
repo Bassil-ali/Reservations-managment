@@ -42,7 +42,7 @@ class BookMachinesDataTable extends DataTable
 		}else{
 		return BookMachine::query()->with(['client_id','machine_id',])->select("book_machines.*");
 		}
-
+         
     }
     	
 

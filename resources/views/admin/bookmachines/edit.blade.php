@@ -102,7 +102,9 @@
 		</div>
 	<!-- /.card-body -->
 	<div class="card-footer"><button type="submit" name="save" class="btn btn-primary btn-flat"><i class="fa fa-save"></i> {{ trans('admin.save') }}</button>
+	@if(auth()->guard('client')->check())
     <button type="submit" name="save_back" class="btn btn-success btn-flat"><i class="fa fa-save"></i> {{ trans('admin.next_input') }}</bt>
+    @endif
 {!! Form::close() !!}
 </div>
 </div>

@@ -62,31 +62,37 @@
 			</div>
 			<div class="clearfix"></div>
 			<hr />
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<b>{{trans('admin.question_1')}} :</b>
 				{!! $bookmachines->question_1 !!}
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.Document_number')}} :</b>
 				{!! $bookmachines->Document_number !!}
 			</div>
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<b>{{trans('admin.client_id')}} :</b>
 				@if(!empty($bookmachines->client_id()->first()))
 			{{ $bookmachines->client_id()->first()->first_name }}
 			@endif
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.machine_id')}} :</b>
 				@if(!empty($bookmachines->machine_id()->first()))
 			{{ $bookmachines->machine_id()->first()->name }}
 			@endif
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<b>{{trans('admin.answer')}} :</b>
 				{{ trans("admin.".$bookmachines->answer) }}
 			</div>
-			<!-- /.row -->
+
+			<!-- /.row -->
 		</div>
 	</div>
 	<!-- /.card-body -->

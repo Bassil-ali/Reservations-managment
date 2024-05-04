@@ -19,8 +19,9 @@ class CreateBookMachinesTable extends Migration
             $table->foreignId("client_id")->constrained("clients")->references("id")->onUpdate("cascade")->onDelete("cascade");
             $table->foreignId("machine_id")->constrained("machines")->references("id")->onUpdate("cascade")->onDelete("cascade");
             $table->string('question_1');
-            $table->enum('answer',['Yes','No'])->nullable();
+            $table->enum('answer',['Yes','No','empty'])->nullable();
             $table->string('Document_number');
+            $table->string('isAnswer')->nullable();
 			$table->timestamps();
         });
     }

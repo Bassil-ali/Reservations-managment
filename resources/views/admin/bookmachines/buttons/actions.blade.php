@@ -1,5 +1,5 @@
 
- <div class="btn-group">
+<div class="btn-group">
 	@if (!auth()->guard('client')->check())
 	<button type="button" class="btn btn-success btn-flat dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i> {{ trans('admin.actions') }}</button>
 	<span class="caret"></span>

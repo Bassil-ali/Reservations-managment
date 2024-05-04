@@ -36,11 +36,11 @@
 				{!! Form::text('Document_number',old('Document_number'),['class'=>'form-control','placeholder'=>trans('admin.Document_number')]) !!}
 		</div>
 	</div>
-@if(!session('client_id'))
+@if(Session::get('client_id') == null)
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 	<div class="form-group">
 		{!! Form::label('client_id',trans('admin.client_id')) !!}
-		{!! Form::select('client_id',App\Models\Client::pluck('first_name','id'),session('client_id'),old('client_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+		{!! Form::select('client_id',App\Models\Client::pluck('first_name','id'),old('client_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 	</div>
 </div>
 @endif
@@ -59,7 +59,7 @@
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 	<div class="form-group">
 		{!! Form::label('answer',trans('admin.answer')) !!}
-		{!! Form::select('answer',['Yes'=>trans('admin.Yes'),'No'=>trans('admin.No'),],old('answer'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+		{!! Form::select('answer',['Yes'=>trans('admin.Yes'),'No'=>trans('admin.No'),'Empty'=>trans('admin.empty'),],old('answer'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 	</div>
 </div>
 
