@@ -36,12 +36,14 @@
 				{!! Form::text('Document_number',old('Document_number'),['class'=>'form-control','placeholder'=>trans('admin.Document_number')]) !!}
 		</div>
 	</div>
+@if(!session('client_id'))
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 	<div class="form-group">
 		{!! Form::label('client_id',trans('admin.client_id')) !!}
-		{!! Form::select('client_id',App\Models\Client::pluck('first_name','id'),old('client_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+		{!! Form::select('client_id',App\Models\Client::pluck('first_name','id'),session('client_id'),old('client_id'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 	</div>
 </div>
+@endif
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 	<div class="form-group">
 		{!! Form::label('machine_id',trans('admin.machine_id')) !!}
@@ -67,7 +69,7 @@
 	</div>
 	<!-- /.card-body -->
 	<div class="card-footer"><button type="submit" name="add" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> {{ trans('admin.add') }}</button>
-<button type="submit" name="add_back" class="btn btn-success btn-flat"><i class="fa fa-plus"></i> {{ trans('admin.add_back') }}</button>
+    <button type="submit" name="add_back" class="btn btn-success btn-flat"><i class="fa fa-plus"></i> {{ trans('admin.next_input') }}</button>
 {!! Form::close() !!}	</div>
 </div>
 @endsection

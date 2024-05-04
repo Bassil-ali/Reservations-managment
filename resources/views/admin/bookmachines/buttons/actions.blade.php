@@ -1,9 +1,11 @@
 
  <div class="btn-group">
+	@if (!auth()->guard('client')->check())
 	<button type="button" class="btn btn-success btn-flat dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i> {{ trans('admin.actions') }}</button>
 	<span class="caret"></span>
 	<span class="sr-only"></span>
 	</button>
+	
 	<div class="dropdown-menu" role="menu">
 		<a href="{{ aurl('/bookmachines/'.$id.'/edit')}}" class="dropdown-item" ><i class="fas fa-edit"></i> {{trans('admin.edit')}}</a>
 		<a href="{{ aurl('/bookmachines/'.$id)}}" class="dropdown-item" ><i class="fa fa-eye"></i> {{trans('admin.show')}}</a>
@@ -14,6 +16,9 @@
 		@endif
 		
 	</div>
+	@else
+	<a href="{{ aurl('/bookmachines/'.$id.'/edit')}}" class="btn btn-success" ><i class="fas fa-edit"></i> {{trans('admin.ans')}}</a>
+	@endif
 </div>
 <div class="modal fade" id="delete_record{{$id}}">
 	<div class="modal-dialog">

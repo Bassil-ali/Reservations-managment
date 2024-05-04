@@ -35,8 +35,8 @@ class BookMachinesRequest extends FormRequest {
 
 	protected function onUpdate() {
 		return [
-             'client_id'=>'somtimes',
-             'machine_id'=>'somtimes',
+             'client_id'=>'sometimes',
+             'machine_id'=>'sometimes',
              'question_1'=>'required|string',
              'answer'=>'in:Yes,No',
              'Document_number'=>'required',

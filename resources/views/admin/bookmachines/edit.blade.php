@@ -6,7 +6,7 @@
 	<div class="card-header">
 		<h3 class="card-title">
 		<div class="">
-			<span>{{!empty($title)?$title:''}}</span>
+			{{-- <span>{{!empty($title)?$title:''}}</span> --}}
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 			<span class="caret"></span>
 			<span class="sr-only"></span>
@@ -67,14 +67,14 @@
 			{!! Form::text('Document_number', $bookmachines->Document_number, ['class' => 'form-control', 'placeholder' => trans('admin.Document_number'),  auth()->guard('client')->check() ? 'readonly' : '']) !!}
 		</div>
 	</div>
-	
+	@if(!auth()->guard('client')->check())
 	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 		<div class="form-group">
 			{!! Form::label('client_id', trans('admin.client_id'), ['class' => 'control-label']) !!}
 			{!! Form::select('client_id', App\Models\Client::pluck('first_name', 'id'), $bookmachines->client_id, ['class' => 'form-control select2', 'placeholder' => trans('admin.client_id'),  auth()->guard('client')->check() ? 'disabled' : '']) !!}
 		</div>
 	</div>
-	
+	@endif
 	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 		<div class="form-group">
 			{!! Form::label('machine_id', trans('admin.machine_id'), ['class' => 'control-label']) !!}
@@ -102,7 +102,7 @@
 		</div>
 	<!-- /.card-body -->
 	<div class="card-footer"><button type="submit" name="save" class="btn btn-primary btn-flat"><i class="fa fa-save"></i> {{ trans('admin.save') }}</button>
-<button type="submit" name="save_back" class="btn btn-success btn-flat"><i class="fa fa-save"></i> {{ trans('admin.save_back') }}</button>
+    <button type="submit" name="save_back" class="btn btn-success btn-flat"><i class="fa fa-save"></i> {{ trans('admin.next') }}</bt>
 {!! Form::close() !!}
 </div>
 </div>

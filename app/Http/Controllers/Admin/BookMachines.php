@@ -62,7 +62,8 @@ class BookMachines extends Controller
             public function store(BookMachinesRequest $request)
             {
                 $data = $request->except("_token", "_method");
-            			  		$bookmachines = BookMachine::create($data); 
+                session()->put('client_id',  $data['client_id']);
+            		$bookmachines = BookMachine::create($data); 
                 $redirect = isset($request["add_back"])?"/create":"";
                 return redirectWithSuccess(aurl('bookmachines'.$redirect), trans('admin.added')); }
 
@@ -74,6 +75,7 @@ class BookMachines extends Controller
              */
             public function show($id)
             {
+
         		$bookmachines =  BookMachine::find($id);
         		return is_null($bookmachines) || empty($bookmachines)?
         		backWithError(trans("admin.undefinedRecord"),aurl("bookmachines")) :
@@ -123,11 +125,15 @@ class BookMachines extends Controller
               // Check Record Exists
               $bookmachines =  BookMachine::find($id);
               if(is_null($bookmachines) || empty($bookmachines)){
-              	return backWithError(trans("admin.undefinedRecord"),aurl("bookmachines"));
+              	return backWithError(trans("admin.undefinedQ"),aurl("bookmachines"));
               }
               $data = $this->updateFillableColumns(); 
+             
+               
               BookMachine::where('id',$id)->update($data);
-              $redirect = isset($request["save_back"])?"/".$id."/edit":"";
+              
+              
+              $redirect = isset($request["save_back"])?"/".($id+1)."/edit":"";
               return redirectWithSuccess(aurl('bookmachines'.$redirect), trans('admin.updated'));
             }
 
