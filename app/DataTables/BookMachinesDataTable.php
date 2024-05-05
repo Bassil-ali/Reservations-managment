@@ -177,12 +177,7 @@ class BookMachinesDataTable extends DataTable
 				'data'=>'Document_number',
 				'title'=>trans('admin.Document_number'),
 		   ],
-			// 	[
-                    
-            //      'name'=>'client_id.first_name',
-            //      'data'=>'client_id.first_name',
-            //      'title'=>trans('admin.client_id'),
-		    // ],
+			
 				[
                  'name'=>'machine_id.name',
                  'data'=>'machine_id.name',

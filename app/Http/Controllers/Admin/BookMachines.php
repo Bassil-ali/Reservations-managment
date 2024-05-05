@@ -37,7 +37,7 @@ class BookMachines extends Controller
              */
             public function index(BookMachinesDataTable $bookmachines)
             {
-             
+               session()->remove('client_id');
                return $bookmachines->render('admin.bookmachines.index',['title'=>trans('admin.bookmachines')]);
             }
 

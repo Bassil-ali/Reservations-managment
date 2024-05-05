@@ -59,7 +59,7 @@
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 	<div class="form-group">
 		{!! Form::label('answer',trans('admin.answer')) !!}
-		{!! Form::select('answer',['Yes'=>trans('admin.Yes'),'No'=>trans('admin.No'),'Empty'=>trans('admin.empty'),],old('answer'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
+		{!! Form::select('answer',['Yes'=>trans('admin.Yes'),'No'=>trans('admin.No'),'empty'=>trans('admin.empty'),],old('answer'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 	</div>
 </div>
 
