@@ -62,7 +62,28 @@
 		{!! Form::select('answer',['Yes'=>trans('admin.Yes'),'No'=>trans('admin.No'),'empty'=>trans('admin.empty'),],old('answer'),['class'=>'form-control select2','placeholder'=>trans('admin.choose')]) !!}
 	</div>
 </div>
-
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+    <!-- Date range -->
+    <div class="form-group">
+        {!! Form::label('date',trans('admin.created_at')) !!}
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="far fa-calendar-alt"></i>
+                </span>
+            </div>
+            {!! Form::text('date',old('date'),['class'=>'form-control float-right date_time_picker','placeholder'=>trans('admin.created_at'),'readonly'=>'readonly']) !!}
+        </div>
+        <!-- /.input group -->
+    </div>
+    <!-- /.form group -->
+</div>
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+    <div class="form-group">
+        {!! Form::label('team_number',trans('admin.team_number'),['class'=>' control-label']) !!}
+            {!! Form::text('team_number',old('team_number'),['class'=>'form-control','placeholder'=>trans('admin.team_number')]) !!}
+    </div>
+</div>
 
 </div>
 		<!-- /.row -->
@@ -73,3 +94,4 @@
 {!! Form::close() !!}	</div>
 </div>
 @endsection
+

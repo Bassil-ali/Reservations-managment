@@ -20,6 +20,8 @@ protected $fillable = [
 
         'Document_number',
         'isAnswer',
+        'date',
+        'team_number',
 		'created_at',
 		'updated_at',
 	];

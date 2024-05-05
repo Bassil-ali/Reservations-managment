@@ -201,6 +201,16 @@ class BookMachinesDataTable extends DataTable
                  'data' => 'answer',
                  'title' => trans('admin.answer'),
              ];
+			 $columns[] =[
+				'name'=>'date',
+				'data'=>'date',
+				'title'=>trans('admin.created_at'),
+			 ];
+			$columns[] = [
+				'name'=>'team_number',
+				'data'=>'team_number',
+				'title'=>trans('admin.team_number'),
+			];
              $columns[] = [
                  'name' => 'actions',
                  'data' => 'actions',
@@ -210,6 +220,7 @@ class BookMachinesDataTable extends DataTable
                  'searchable' => false,
                  'orderable' => false,
              ];
+			
          
              return $columns;
          }

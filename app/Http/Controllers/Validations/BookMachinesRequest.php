@@ -28,9 +28,11 @@ class BookMachinesRequest extends FormRequest {
              'client_id'=>'required',
              'machine_id'=>'required',
              'question_1'=>'required|string',
-             'answer'=>'in:Yes,No,empty',
+             'answer'=>'in:Yes,No,Empty',
              'Document_number'=>'required',
              'isAnswer'=>'sometimes|integer',
+             'date'=>'required',
+             'team_number'=>'required',
 		];
 	}
 
@@ -39,9 +41,11 @@ class BookMachinesRequest extends FormRequest {
              'client_id'=>'sometimes',
              'machine_id'=>'sometimes',
              'question_1'=>'required|string',
-             'answer'=>'in:Yes,No',
+             'answer'=>'in:Yes,No,Empty',
              'Document_number'=>'required',
              'isAnswer'=>'sometimes|integer',
+             'date'=>'required',
+             'team_number'=>'required',
 		];
 	}
 
@@ -65,6 +69,8 @@ class BookMachinesRequest extends FormRequest {
              'answer'=>trans('admin.answer'),
              'Document_number'=>trans('admin.Document_number'),
              'isAnswer'=>trans('admin.isAnswer'),
+             'date'=>trans('admin.date'),
+             'team_number'=>trans('admin.team_number'),
 		];
 	}
 

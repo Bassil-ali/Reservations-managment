@@ -88,11 +88,32 @@
 			{!! Form::text('question_1', $bookmachines->question_1, ['class' => 'form-control', 'placeholder' => trans('admin.question_1'),  auth()->guard('client')->check() ? 'readonly' : '']) !!}
 		</div>
 	</div>
-	
+	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+		<!-- Date range -->
+		<div class="form-group">
+			{!! Form::label('date',trans('admin.created_at')) !!}
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">
+						<i class="far fa-calendar-alt"></i>
+					</span>
+				</div>
+				{!! Form::text('date', $bookmachines->date ,['class'=>'form-control float-right date_time_picker','placeholder'=>trans('admin.created_at'),auth()->guard('client')->check() ? 'readonly' : '']) !!}
+			</div>
+			<!-- /.input group -->
+		</div>
+		<!-- /.form group -->
+	</div>
+	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+		<div class="form-group">
+			{!! Form::label('team_number',trans('admin.team_number'),['class'=>'control-label']) !!}
+			{!! Form::text('team_number', $bookmachines->team_number ,['class'=>'form-control','placeholder'=>trans('admin.team_number'),auth()->guard('client')->check() ? 'readonly' : '']) !!}
+		</div>
+	</div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 		<div class="form-group">
 				{!! Form::label('answer',trans('admin.answer'),['class'=>'control-label']) !!}
-{!! Form::select('answer',['Yes'=>trans('admin.Yes'),'No'=>trans('admin.No'),], $bookmachines->answer ,['class'=>'form-control select2','placeholder'=>trans('admin.answer')]) !!}
+{!! Form::select('answer',['Yes'=>trans('admin.Yes'),'No'=>trans('admin.No'),], $bookmachines->answer ,['class'=>'form-control select2','placeholder'=>trans('admin.answer'),]) !!}
 		</div>
 </div>
 
@@ -109,3 +130,5 @@
 </div>
 </div>
 @endsection
+
+
