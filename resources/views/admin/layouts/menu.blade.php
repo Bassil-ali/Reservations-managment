@@ -375,6 +375,7 @@ with font-awesome or any other icon font library -->
 <!--bookmachines_start_route-->
 
 <li class="nav-item {{active_link('bookmachines','menu-open')}} ">
+  @if(!auth()->guard('client')->check())
   <a href="#" class="nav-link {{active_link('bookmachines','active')}}">
     <i class="nav-icon fa fa-icons"></i>
     <p>
@@ -382,6 +383,7 @@ with font-awesome or any other icon font library -->
       <i class="right fas fa-angle-left"></i>
     </p>
   </a>
+  
   <ul class="nav nav-treeview">
     <li class="nav-item">
       <a href="{{aurl('bookmachines')}}" class="nav-link  {{active_link('bookmachines','active')}}">
@@ -389,6 +391,22 @@ with font-awesome or any other icon font library -->
         <p>{{trans('admin.bookmachines')}} </p>
       </a>
     </li>
+    @else
+    <a href="#" class="nav-link {{active_link('bookmachines','active')}}">
+      <i class="nav-icon fa fa-icons"></i>
+      <p>
+        {{trans('admin.client_book')}} 
+        <i class="right fas fa-angle-left"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{aurl('bookmachines')}}" class="nav-link  {{active_link('bookmachines','active')}}">
+          <i class="fa fa-icons nav-icon"></i>
+          <p>{{trans('admin.client_book')}} </p>
+        </a>
+      </li>
+    @endif
     @if(!auth()->guard('client')->check())
     <li class="nav-item">
       <a href="{{ aurl('bookmachines/create') }}" class="nav-link">

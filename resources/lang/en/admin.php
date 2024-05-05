@@ -204,7 +204,9 @@
 		'next' => 'Next',
 		'next_input' => 'Save and Next',
 		'undefinedQ' => 'There is no next question in this document',
-		'empty' => 'Empty'
+		'empty' => 'Empty',
+		'client_book' => 'Machine Follow-up'
+
 
 
 ];

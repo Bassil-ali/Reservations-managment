@@ -199,7 +199,9 @@
 		'next' => 'Suivant',
 		'next_input' => 'Enregistrer et suivant',
 		'undefinedQ' => 'Il n\'y a pas de prochaine question dans ce document',
-		'empty' => 'Vide'
+		'empty' => 'Vide',
+		'client_book' => 'Suivi de machine'
+
 
 
 ];
