@@ -152,71 +152,68 @@ class BookMachinesDataTable extends DataTable
 	     * @return array
 	     */
 
-	    protected function getColumns()
-	    {
-
-	       $columns = [
-
-	       	
- [
-                'name' => 'checkbox',
-                'data' => 'checkbox',
-                'title' => '<div  class="icheck-danger">
-                  <input type="checkbox" class="select-all" id="select-all"  onclick="select_all()" >
-                  <label for="select-all"></label>
-                </div>',
-                'orderable'      => false,
-                'searchable'     => false,
-                'exportable'     => false,
-                'printable'      => false,
-                'width'          => '10px',
-                'aaSorting'      => 'none'
-            ],
-			[
-				'name'=>'Document_number',
-				'data'=>'Document_number',
-				'title'=>trans('admin.Document_number'),
-		   ],
-			
-				[
-                 'name'=>'machine_id.name',
-                 'data'=>'machine_id.name',
-                 'title'=>trans('admin.machine_id'),
-		    ],
-				[
-                 'name'=>'question_1',
-                 'data'=>'question_1',
-                 'title'=>trans('admin.question_1'),
-		    ],
-				[
-                 'name'=>'book_machines.answer',
-                 'data'=>'answer',
-                 'title'=>trans('admin.answer'),
-		    ],
-				
-            [
-	                'name' => 'actions',
-	                'data' => 'actions',
-	                'title' => trans('admin.actions'),
-	                'exportable' => false,
-	                'printable'  => false,
-	                'searchable' => false,
-	                'orderable'  => false,
-					
-	            ],
-    	 ];
-         // Check if the client is authenticated
-    if (!auth()->guard('client')->check()) {
-        // Include the client name column if the client is not logged in
-        $columns[0] = [
-            'name'=>'client_id.first_name',
-            'data'=>'client_id.first_name',
-            'title'=>trans('admin.client_id'),
-        ];
-    }
-    return $columns;
-			}
-
+         protected function getColumns()
+         {
+             $columns = [];
+         
+             // Check if the client is authenticated
+             if (!auth()->guard('client')->check()) {
+                 // Add the client_id column at the beginning
+                 $columns[] = [
+                     'name' => 'client_id.first_name',
+                     'data' => 'client_id.first_name',
+                     'title' => trans('admin.client_id'),
+                 ];
+             }
+         
+             // Define other columns
+             $columns[] = [
+                 'name' => 'checkbox',
+                 'data' => 'checkbox',
+                 'title' => '<div  class="icheck-danger">
+                   <input type="checkbox" class="select-all" id="select-all"  onclick="select_all()" >
+                   <label for="select-all"></label>
+                 </div>',
+                 'orderable' => false,
+                 'searchable' => false,
+                 'exportable' => false,
+                 'printable' => false,
+                 'width' => '10px',
+                 'aaSorting' => 'none'
+             ];
+             $columns[] = [
+                 'name' => 'Document_number',
+                 'data' => 'Document_number',
+                 'title' => trans('admin.Document_number'),
+             ];
+             $columns[] = [
+                 'name' => 'machine_id.name',
+                 'data' => 'machine_id.name',
+                 'title' => trans('admin.machine_id'),
+             ];
+             $columns[] = [
+                 'name' => 'question_1',
+                 'data' => 'question_1',
+                 'title' => trans('admin.question_1'),
+             ];
+             $columns[] = [
+                 'name' => 'book_machines.answer',
+                 'data' => 'answer',
+                 'title' => trans('admin.answer'),
+             ];
+             $columns[] = [
+                 'name' => 'actions',
+                 'data' => 'actions',
+                 'title' => trans('admin.actions'),
+                 'exportable' => false,
+                 'printable' => false,
+                 'searchable' => false,
+                 'orderable' => false,
+             ];
+         
+             return $columns;
+         }
+         
 	    /**
 	     * Get filename for export.
 	     * Auto filename Method By Baboon Script
