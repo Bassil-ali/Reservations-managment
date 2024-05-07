@@ -186,11 +186,7 @@ class BookMachinesDataTable extends DataTable
                  'data' => 'Document_number',
                  'title' => trans('admin.Document_number'),
              ];
-             $columns[] = [
-                 'name' => 'machine_id.name',
-                 'data' => 'machine_id.name',
-                 'title' => trans('admin.machine_id'),
-             ];
+            
              $columns[] = [
                  'name' => 'question_1',
                  'data' => 'question_1',
@@ -211,6 +207,11 @@ class BookMachinesDataTable extends DataTable
 				'data'=>'team_number',
 				'title'=>trans('admin.team_number'),
 			];
+            $columns[] = [
+                'name' => 'machine_id.name',
+                'data' => 'machine_id.name',
+                'title' => trans('admin.machine_id'),
+            ];
              $columns[] = [
                  'name' => 'actions',
                  'data' => 'actions',

@@ -25,10 +25,10 @@ class BookMachinesRequest extends FormRequest {
 	 */
 	protected function onCreate() {
 		return [
-             'client_id'=>'required',
+             'client_id'=>'sometimes',
              'machine_id'=>'required',
              'question_1'=>'required|string',
-             'answer'=>'in:Yes,No,Empty',
+             'answer'=>'in:yes,no,empty',
              'Document_number'=>'required',
              'isAnswer'=>'sometimes|integer',
              'date'=>'required',
@@ -40,8 +40,8 @@ class BookMachinesRequest extends FormRequest {
 		return [
              'client_id'=>'sometimes',
              'machine_id'=>'sometimes',
-             'question_1'=>'required|string',
-             'answer'=>'in:Yes,No,Empty',
+             'question_1'=>'required',
+             'answer'=>'required',
              'Document_number'=>'required',
              'isAnswer'=>'sometimes|integer',
              'date'=>'required',

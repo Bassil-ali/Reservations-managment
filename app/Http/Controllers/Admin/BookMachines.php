@@ -66,10 +66,13 @@ class BookMachines extends Controller
             public function store(BookMachinesRequest $request)
             {
                 $data = $request->except("_token", "_method");
-                session()->put('client_id',  $data['client_id']);
+                if(session()->get('client_id') == null){
+                  session()->put('client_id',  $data['client_id']);
+                  }
                 
                 
                 $client_id = session()->get('client_id');
+                
                 if($client_id != null){
                   $data['client_id'] = $client_id;
                 }
@@ -105,11 +108,13 @@ class BookMachines extends Controller
             {
               
         		$bookmachines =  BookMachine::find($id);
+            $questions = BookMachine::where('client_id',$bookmachines->client_id)->where('machine_id',$bookmachines->machine_id)->get();
         		return is_null($bookmachines) || empty($bookmachines)?
         		backWithError(trans("admin.undefinedRecord"),aurl("bookmachines")) :
         		view('admin.bookmachines.edit',[
 				  'title'=>trans('admin.edit'),
-				  'bookmachines'=>$bookmachines
+				  'bookmachines'=>$bookmachines,
+          'questions' => $questions
         		]);
             }
 
@@ -132,6 +137,7 @@ class BookMachines extends Controller
 
             public function update(BookMachinesRequest $request,$id)
             {
+              //dd($request['question_1'][0]);
               // Check Record Exists
               $bookmachines =  BookMachine::find($id);
               if(is_null($bookmachines) || empty($bookmachines)){
@@ -139,8 +145,20 @@ class BookMachines extends Controller
               }
               $data = $this->updateFillableColumns(); 
              
-              BookMachine::where('id',$id)->update(['isAnswer' => 1]);
+              //BookMachine::where('id',$id)->update(['isAnswer' => 1]);
               BookMachine::where('id',$id)->update($data);
+              $machineAnswers = BookMachine::where('client_id',$bookmachines->client_id)->where('machine_id',$bookmachines->machine_id)->get();
+              
+              foreach($machineAnswers as $machineAnswer){
+                 foreach($request['answer'] as $answer){
+                  
+                  $machineAnswer->update([
+                    'answer' => $answer,
+                    'isAnswer' => 1
+                  ]);
+                 }
+              }
+
               $id = 0;
               if(auth()->guard('client')->check()){
                
@@ -149,7 +167,7 @@ class BookMachines extends Controller
              // dd($id);
               if($id->isEmpty()){
                 //dd('cd');
-                return backWithError(trans("admin.undefinedQ"),aurl("bookmachines"));
+                return backWithSuccess(trans("admin.undefinedQ"),aurl("bookmachines"));
               }
               
               $redirect = isset($request["save_back"])?"/".($id[0]->id)."/edit":"";

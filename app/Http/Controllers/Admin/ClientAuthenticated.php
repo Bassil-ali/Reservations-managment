@@ -26,14 +26,19 @@ class ClientAuthenticated extends Controller {
 
 	public function login_post() {
 		
-		
-		if (Auth::guard('client')->attempt(['email' => request('email'), 'password' => request('password')])) {
+	// if(!is_null(Client::where('email', request('email'))->where('active', 'activate')->get())){
+        if (Auth::guard('client')->attempt(['email' => request('email'), 'password' => request('password')])) {
 			
 			return redirect(aurl('/'));
 		} else {
 			session()->flash('error', trans('Client.error_loggedin'));
 			return back();
 		}
+	// }else{
+	// 	session()->flash('error', trans('Client.not_activated'));
+	// 	return back();
+	// }
+		
 	}
 
 	public function logout() {

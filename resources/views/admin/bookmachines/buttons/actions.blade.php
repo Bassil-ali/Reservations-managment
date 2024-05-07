@@ -7,7 +7,7 @@
 	</button>
 	
 	<div class="dropdown-menu" role="menu">
-		<a href="{{ aurl('/bookmachines/'.$id.'/edit')}}" class="dropdown-item" ><i class="fas fa-edit"></i> {{trans('admin.edit')}}</a>
+		<a href="{{ aurl('/bookmachines/'.$id.'/edit')}}" class="dropdown-item" ><i class="fas fa-edit"></i> {{trans('admin.edit-ans')}}</a>
 		<a href="{{ aurl('/bookmachines/'.$id)}}" class="dropdown-item" ><i class="fa fa-eye"></i> {{trans('admin.show')}}</a>
 		<div class="dropdown-divider"></div>
 		@if (!auth()->guard('client')->check())

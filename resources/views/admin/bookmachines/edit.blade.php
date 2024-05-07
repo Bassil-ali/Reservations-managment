@@ -82,12 +82,7 @@
 		</div>
 	</div>
 	
-	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-		<div class="form-group">
-			{!! Form::label('question_1', trans('admin.question_1'), ['class' => 'control-label']) !!}
-			{!! Form::text('question_1', $bookmachines->question_1, ['class' => 'form-control', 'placeholder' => trans('admin.question_1'),  auth()->guard('client')->check() ? 'readonly' : '']) !!}
-		</div>
-	</div>
+	
 	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 		<!-- Date range -->
 		<div class="form-group">
@@ -110,12 +105,22 @@
 			{!! Form::text('team_number', $bookmachines->team_number ,['class'=>'form-control','placeholder'=>trans('admin.team_number'),auth()->guard('client')->check() ? 'readonly' : '']) !!}
 		</div>
 	</div>
-<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+	@foreach ($questions as $question)
+	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 		<div class="form-group">
-				{!! Form::label('answer',trans('admin.answer'),['class'=>'control-label']) !!}
-{!! Form::select('answer',['Yes'=>trans('admin.Yes'),'No'=>trans('admin.No'),], $bookmachines->answer ,['class'=>'form-control select2','placeholder'=>trans('admin.answer'),]) !!}
+			{!! Form::label('question_1', trans('admin.question_1'), ['class' => 'control-label']) !!}
+			{!! Form::text('question_1[]', $question->question_1, ['class' => 'form-control', 'placeholder' => trans('admin.question_1'),  auth()->guard('client')->check() ? 'readonly' : '']) !!}
 		</div>
-</div>
+	</div>
+
+	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+			<div class="form-group">
+					{!! Form::label('answer[]',trans('admin.answer'),['class'=>'control-label']) !!}
+	{!! Form::select('answer[]',['Yes'=>trans('admin.Yes'),'No'=>trans('admin.No'),'Empty'=>trans('admin.empty'),], $question->answer ,['class'=>'form-control select2','placeholder'=>trans('admin.answer_client'),$bookmachines->isAnswer ? 'disabled' : '',]) !!}
+			</div>
+	</div>
+	@endforeach
+	
 
 
 </div>
@@ -123,9 +128,9 @@
 		</div>
 	<!-- /.card-body -->
 	<div class="card-footer"><button type="submit" name="save" class="btn btn-primary btn-flat"><i class="fa fa-save"></i> {{ trans('admin.save') }}</button>
-	@if(auth()->guard('client')->check())
+	{{-- @if(auth()->guard('client')->check())
     <button type="submit" name="save_back" class="btn btn-success btn-flat"><i class="fa fa-save"></i> {{ trans('admin.next_input') }}</bt>
-    @endif
+    @endif --}}
 {!! Form::close() !!}
 </div>
 </div>
