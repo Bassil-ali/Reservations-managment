@@ -155,6 +155,28 @@ class BookMachinesDataTable extends DataTable
          protected function getColumns()
          {
              $columns = [];
+
+              // Define other columns
+              $columns[] = [
+                'name' => 'checkbox',
+                'data' => 'checkbox',
+                'title' => '<div  class="icheck-danger">
+                  <input type="checkbox" class="select-all" id="select-all"  onclick="select_all()" >
+                  <label for="select-all"></label>
+                </div>',
+                'orderable' => false,
+                'searchable' => false,
+                'exportable' => false,
+                'printable' => false,
+                'width' => '10px',
+                'aaSorting' => 'none'
+            ];
+            $columns[] = [
+                'name' => 'Document_number',
+                'data' => 'Document_number',
+                'title' => trans('admin.Document_number'),
+            ];
+
          
              // Check if the client is authenticated
              if (!auth()->guard('client')->check()) {
@@ -166,26 +188,13 @@ class BookMachinesDataTable extends DataTable
                  ];
              }
          
-             // Define other columns
+            
+            
              $columns[] = [
-                 'name' => 'checkbox',
-                 'data' => 'checkbox',
-                 'title' => '<div  class="icheck-danger">
-                   <input type="checkbox" class="select-all" id="select-all"  onclick="select_all()" >
-                   <label for="select-all"></label>
-                 </div>',
-                 'orderable' => false,
-                 'searchable' => false,
-                 'exportable' => false,
-                 'printable' => false,
-                 'width' => '10px',
-                 'aaSorting' => 'none'
-             ];
-             $columns[] = [
-                 'name' => 'Document_number',
-                 'data' => 'Document_number',
-                 'title' => trans('admin.Document_number'),
-             ];
+                'name' => 'machine_id.name',
+                'data' => 'machine_id.name',
+                'title' => trans('admin.machine_id'),
+            ];
             
              $columns[] = [
                  'name' => 'question_1',
@@ -207,11 +216,7 @@ class BookMachinesDataTable extends DataTable
 				'data'=>'team_number',
 				'title'=>trans('admin.team_number'),
 			];
-            $columns[] = [
-                'name' => 'machine_id.name',
-                'data' => 'machine_id.name',
-                'title' => trans('admin.machine_id'),
-            ];
+           
              $columns[] = [
                  'name' => 'actions',
                  'data' => 'actions',
